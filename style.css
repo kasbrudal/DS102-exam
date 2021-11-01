@@ -12,6 +12,9 @@ body{
 .nav-head{
     border: 1px solid black;
 }
+.nav-head-2{
+    justify-self: flex-end;
+}
 .nav-search{
     display: flex;
     flex-direction: column;
