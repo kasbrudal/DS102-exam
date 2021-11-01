@@ -26,8 +26,9 @@
                 <option value="fotball">Fotball</option>
             </select>
         </div>
-
-        <div id="outputInfo"></div>
+        <div class="output" id="outputInfo">
+            
+        </div>
     <script>
         var output = document.getElementById("outputInfo")
 
@@ -115,9 +116,9 @@
 
         for (let i = 0; i < pokeArray.length; i++) {
             console.log(i)
-            output.innerHTML +=`<h2> ${pokeArray[i].name} </h2>
+            output.innerHTML +=`<div><h2> ${pokeArray[i].name} </h2>
 		 		<p> Hovedstad: ${pokeArray[i].image}</p>
-		 		<p> Region: ${pokeArray[i].dexNumber}</p>`
+		 		<p> Region: ${pokeArray[i].dexNumber}</p><div/>`
             
         };
     
