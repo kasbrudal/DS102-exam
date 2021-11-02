@@ -31,19 +31,19 @@
         let showPokemonBtn = document.getElementById("pokemon-btn");
         let output = document.getElementById("outputInfo")
 
-        const getAllPokemon = () =>{
-            return pokeArray;
-        }
-        const showAllPokemon = (pokemons) => {
-            htmlTxt = " ";
-            pokemons.forEach(pokemon => {
-                htmlTxt += `
-                <div><h2> ${pokeArray[i].name} </h2>
-		 		<p> Hovedstad: ${pokeArray[i].image}</p>
-		 		<p> Region: ${pokeArray[i].dexNumber}</p><div/>
-                `
+
+        
+        const showAllPokemon = () => {
+            const pokemons = getAllPokemon();
+            output.innerHTML = " ";
+            pokemons.forEach(pokemon =>{
+                console.log("hei")
+                output.innerHTML += `
+                <div><h2> ${pokemon.name} </h2>
+		 		<p> Hovedstad: ${pokemon.image}</p>
+		 		<p> Region: ${pokemon.dexNumber}</p><div/>
+                `;
             });
-            output.innerHTML = htmlTxt;
         }
         /*
         for (let i = 0; i < pokeArray.length; i++) {

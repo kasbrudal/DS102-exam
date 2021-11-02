@@ -79,3 +79,6 @@ var pokeArray = [
     name:"Raticate", dexNumber:20, type1:"Normal", type2:"none", image:"images/020.png",
     pokeInfo:"Its hind feet are webbed. They act as flippers, so it can swim in rivers and hunt for prey."
     }]
+    const getAllPokemon = () =>{
+        return pokeArray;
+    } 
