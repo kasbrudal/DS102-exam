@@ -24,10 +24,14 @@
             <button id="pokemon-btn" class="pokemon">Pokemon</button>
             <button id="fotball" class="fotball">Fotball</button>
         </div>
+        <div class="filterSection" id="filterSection">
+
+        </div>
         <div class="output" id="outputInfo">
         </div>
     <script src="scripts/pokeArray.js"></script>
     <script>
+        let filterSection = document.getElementById("filterSection")
         let showPokemonBtn = document.getElementById("pokemon-btn");
         let output = document.getElementById("outputInfo")
 
@@ -36,9 +40,19 @@
         const showAllPokemon = () => {
             const pokemons = getAllPokemon();
             output.innerHTML = " ";
+            filterSection.innerHTML = `
+            <select name="type" id="type">
+                <option value="water">water</option>
+            </select>
+            <select name="dex" id="dex">
+                <option value="1">1</option>
+            </select>
+            <input type="text">
+            `
             pokemons.forEach(pokemon =>{
                 console.log("hei")
                 output.innerHTML += `
+                
                 <div><h2> ${pokemon.name} </h2>
 		 		<p> Hovedstad: ${pokemon.image}</p>
 		 		<p> Region: ${pokemon.dexNumber}</p><div/>

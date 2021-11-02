@@ -33,5 +33,11 @@ body{
     grid-auto-rows: minmax(100px, auto);
     margin: 5px;
 }
+.filterSection{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    height: 60px;
+}
 
 
