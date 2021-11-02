@@ -34,6 +34,7 @@
         let filterSection = document.getElementById("filterSection")
         let showPokemonBtn = document.getElementById("pokemon-btn");
         let output = document.getElementById("outputInfo")
+        
 
 
         
@@ -50,24 +51,22 @@
             <input type="text">
             `
             pokemons.forEach(pokemon =>{
-                console.log("hei")
+                console.log(pokemon.type1)
                 output.innerHTML += `
-                <div>
+                <div class="pokeCard">
                 <img src="${pokemon.image}" alt="Image of ${pokemon.name}" width="150px">
                 <p>${pokemon.dexNumber}</p>
                 <h2> ${pokemon.name} </h2>
-		 		<p>${pokemon.type1}, ${pokemon.type2} </p>
+                <div class="p">
+		 		<b class="p1" style="background:${pokemon.color1}">${pokemon.type1}   </b>
+                 <b class="p1" style="background:${pokemon.color2}">${pokemon.type2}</b>
+                    </div>
+                
+                 
                 `;
             });
         }
-        /*
-        for (let i = 0; i < pokeArray.length; i++) {
-            console.log(i)
-            output.innerHTML +=`<div><h2> ${pokeArray[i].name} </h2>
-		 		<p> Hovedstad: ${pokeArray[i].image}</p>
-		 		<p> Region: ${pokeArray[i].dexNumber}</p><div/>`
-            
-        };*/
+
         showPokemonBtn.addEventListener("click", showAllPokemon);
     
 
