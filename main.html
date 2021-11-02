@@ -52,10 +52,11 @@
             pokemons.forEach(pokemon =>{
                 console.log("hei")
                 output.innerHTML += `
-                
-                <div><h2> ${pokemon.name} </h2>
-		 		<p> Hovedstad: ${pokemon.image}</p>
-		 		<p> Region: ${pokemon.dexNumber}</p><div/>
+                <div>
+                <img src="${pokemon.image}" alt="Image of ${pokemon.name}" width="150px">
+                <p>${pokemon.dexNumber}</p>
+                <h2> ${pokemon.name} </h2>
+		 		<p>${pokemon.type1}, ${pokemon.type2} </p>
                 `;
             });
         }
