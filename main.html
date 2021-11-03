@@ -10,16 +10,16 @@
 <body>
     <div class="nav">
         <div class="nav-head">
+            <img src="images/info.png" alt="" height="100px">
             <h1>Informasjon</h1>
         </div>
         <div class="nav-head-2">
-            <h1>Quiz</h1>
+            <img src="images/question.png" alt="" height="100px">
+            <h2>Quiz</h2>
         </div>
-        <div class="nav-search">
-            <p>Søkefelt</p>
-            <input type="text">
-        </div>
+        
     </div>
+        <div class="informationSection"><h2>Velg kategori du vil lære om</h2></div>
         <div class="select-section">
             <button id="pokemon-btn" class="pokemon">Pokemon</button>
             <button id="fotball" class="fotball">Fotball</button>
@@ -43,12 +43,22 @@
             output.innerHTML = " ";
             filterSection.innerHTML = `
             <select name="type" id="type">
+                <option>Velg type</option>
                 <option value="water">water</option>
+                <option value="fire">Fire</option>
+                <option value="grass">Grass</option>
+                <option value="normal">Normal</option>
+                <option value="poison">Poison</option>
+                <option value="flying">Flying</option>
+                <option value="bug">Bug</option>
+
             </select>
             <select name="dex" id="dex">
                 <option value="1">1</option>
             </select>
-            <input type="text">
+            <input type="text" id="txtInput" placeholder="Skriv inn navn til Pokemon" class="txtInput">
+            <input class="btnSearchPoke" id="search-after-poke-btn" type="button" value="Søk etter Pokemon">
+
             `
             pokemons.forEach(pokemon =>{
                 console.log(pokemon.type1)
