@@ -1,7 +1,7 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    background: linear-gradient(to left,#62b6cb, #cae9ff, #1b4965);
+    background: #a4b2bb;
 
 }
 .nav{
@@ -30,10 +30,11 @@ body{
     margin: 0;
 }
 .informationSection{
+    color: white;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: linear-gradient(to left, #bee9e8, #5fa8d3);
+    background: rgb(20, 37, 39);
     
 }
 .select-section{
@@ -41,7 +42,7 @@ body{
     height: 50px;
     display: flex;
     justify-content: space-around;
-    background: linear-gradient(to left, #1b4965, #5fa8d3);
+    background: rgb(77, 93, 102);
 
 }
 .output{
