@@ -36,21 +36,21 @@
         let output = document.getElementById("outputInfo")
         
 
-        const pokemons = getAllPokemon();
+        const allPokemon = getAllPokemon();
         
-        const showAllPokemon = () => {
+        const createFilterButtons = () => {
             
             output.innerHTML = " ";
             filterSection.innerHTML = `
-            <select name="type" id="type">
+            <select name="type" id="type" onchange="showPokeType()">
                 <option>Velg type</option>
-                <option value="water">Water</option>
-                <option value="fire">Fire</option>
-                <option value="grass">Grass</option>
-                <option value="normal">Normal</option>
-                <option value="poison">Poison</option>
-                <option value="flying">Flying</option>
-                <option value="bug">Bug</option>
+                <option value="Water">Water</option>
+                <option value="Fire">Fire</option>
+                <option value="Grass">Grass</option>
+                <option value="Normal">Normal</option>
+                <option value="Poison">Poison</option>
+                <option value="Flying">Flying</option>
+                <option value="Bug">Bug</option>
             </select>
             <select name="dex" id="dex">
                 <option value="1">1</option>
@@ -59,8 +59,11 @@
             <input class="btnSearchPoke" id="search-after-poke-btn" type="button" value="Søk etter Pokemon">
 
             `
-            const pokeType = document.getElementById("type")
-            console.log(pokeType.value)
+            showAllPokemon(allPokemon);
+        };
+
+            const showAllPokemon = (pokemons) => {
+            output.innerHTML="";
             pokemons.forEach(pokemon =>{
                 output.innerHTML += `
                 <div class="pokeCard">
@@ -76,18 +79,17 @@
                 `;
             });
         }
-        const pokeType = document.getElementById("type")
-        showPokemonBtn.addEventListener("click", showAllPokemon);
-
-        
+        output.innerHTML=" ";
+        showPokemonBtn.addEventListener("click", createFilterButtons);
             const showPokeType = () => {
+                const pokeType = document.getElementById("type")
                 let type = pokeType.value;
-                let selectedType = pokemons.filter( pokemon => pokemon.type1 === type);
+                let selectedType = allPokemon.filter( pokemon => pokemon.type1 === type || pokemon.type2 == type);
                 showAllPokemon(selectedType);
-                console.log(pokeType);
+                console.log(pokeType.value);
             }
 
-
+        
     
 
     </script>
