@@ -33,7 +33,8 @@
     <script>
         let filterSection = document.getElementById("filterSection")
         let showPokemonBtn = document.getElementById("pokemon-btn");
-        let output = document.getElementById("outputInfo")
+        let output = document.getElementById("outputInfo");
+        let searchPokeBtn = document.getElementById("searchPokeBtn");
         
 
         const allPokemon = getAllPokemon();
@@ -55,9 +56,10 @@
             <select name="dex" id="dex">
                 <option value="1">1</option>
             </select>
-            <input type="text" id="txtInput" placeholder="Skriv inn navn til Pokemon" class="txtInput">
-            <input class="btnSearchPoke" id="search-after-poke-btn" type="button" value="Søk etter Pokemon">
-
+            <div class="searchPokeName">
+                <input type="text" id="txtInput" placeholder="Skriv inn navn til Pokemon" class="txtInput">
+                <input class="btnSearchPoke" id="searchPokeBtn" type="button" value="Søk etter Pokemon" onclick="searchPokeName()">
+            </div>
             `
             showAllPokemon(allPokemon);
         };
@@ -81,12 +83,19 @@
         }
         output.innerHTML=" ";
         showPokemonBtn.addEventListener("click", createFilterButtons);
+        
             const showPokeType = () => {
                 const pokeType = document.getElementById("type")
                 let type = pokeType.value;
                 let selectedType = allPokemon.filter( pokemon => pokemon.type1 === type || pokemon.type2 == type);
                 showAllPokemon(selectedType);
                 console.log(pokeType.value);
+            }
+            const searchPokeName = () => {
+                const pokeName = document.getElementById("txtInput")
+                let name = pokeName.value.toLowerCase();
+                let searchedPokemon = allPokemon.filter(pokemon => pokemon.name.toLowerCase().includes(name));
+                showAllPokemon(searchedPokemon);
             }
 
         

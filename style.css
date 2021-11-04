@@ -2,7 +2,6 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     background: #a4b2bb;
-
 }
 .nav{
     display: flex;
@@ -34,17 +33,39 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: rgb(20, 37, 39);
+    background: rgb(77, 93, 102);
     
 }
 .select-section{
     font-size: 120px;
-    height: 50px;
+    
     display: flex;
     justify-content: space-around;
     background: rgb(77, 93, 102);
 
 }
+.pokemon, .fotball{
+    font-size: 20px;
+    border: 1px dotted black;
+    background-color: #5b71f1;
+    border-radius: 10px;
+    padding: 20px 40px;
+    margin: 12px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 9px gray;
+  
+}
+.pokemon:hover, .fotball:hover{
+    background: #202d77;
+}
+.pokemon:active, .fotball:active{
+    box-shadow: 0 2px gray;
+    transform: translateY(5px);
+}
+
+
 .output{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -60,7 +81,9 @@ body{
     flex-direction: row;
     height: 60px;
 }
-
+.searchPokeName{
+    display: inline-flex;
+}
 .pokeCard{
     display: flex;
     flex-direction: column;
