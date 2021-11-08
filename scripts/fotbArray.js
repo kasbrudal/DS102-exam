@@ -210,6 +210,7 @@ var fotbArray = [
         playerInfo:"Regarded as a highly technical, creative player, Sancho is known for his trickery and use of feints in one-on-one situations and has been described as one of the world's best young players.",
         playerImg:"images/sancho.png",
     },
+
 ]
 
 const getAllPlayers = () =>{
