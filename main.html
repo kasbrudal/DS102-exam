@@ -101,6 +101,18 @@
                 <input class="btnSearchPoke" id="searchPokeBtn" type="button" value="Søk etter Pokemon" onclick="searchPokeName()">
             </div>
             `
+            showAllPlayers(allPlayers);
+        };
+        const showAllPlayers = (players) => {
+            output.innerHTML="";
+            players.forEach(player =>{
+                output.innerHTML += `
+                <div class="playerCard">
+                <img src="${player.image}" alt="Image of ${player.name}" width="150px">
+                <p>${player.ranking}</p>
+                <h2> ${player.name} </h2>             
+                `;
+            });
         }
 
 
