@@ -72,7 +72,7 @@
             pokemons.forEach(pokemon =>{
                 output.innerHTML += `
                 <div class="pokeCard">
-                <img src="${pokemon.image}" alt="Image of ${pokemon.name}" width="150px">
+                <img src="${pokemon.image}" alt="Image of ${pokemon.name}" width="250px">
                 <p>${pokemon.dexNumber}</p>
                 <h2> ${pokemon.name} </h2>
                 <div class="p">
@@ -111,7 +111,7 @@
                 <div class="playerCard">
                 <img class="playerImg" src="${player.playerImg}" alt="Image of ${player.name}">
                 <p>${player.ranking}</p>
-                <h2> ${player.player} </h2>             
+                <h2> ${player.name} </h2>             
                 `;
             });
         }
@@ -147,7 +147,7 @@
                 const playerName = document.getElementById("txtInput")
                 let name = playerName.value.toLowerCase();
                 let searchedPlayers = allPlayers.filter(player => player.name.toLowerCase().includes(name));
-                showAllPokemon(searchedPokemon);
+                showAllPlayers(searchedPlayers);
             }
 
     </script>
