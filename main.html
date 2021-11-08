@@ -56,9 +56,6 @@
                 <option value="Flying">Flying</option>
                 <option value="Bug">Bug</option>
             </select>
-            <select name="dex" id="dex">
-                <option value="1">1</option>
-            </select>
             <div class="searchPokeName">
                 <input type="text" id="txtInput" placeholder="Skriv inn navn til Pokemon" class="txtInput">
                 <input class="btnSearchPoke" id="searchPokeBtn" type="button" value="Søk etter Pokemon" onclick="searchPokeName()">
@@ -97,8 +94,8 @@
                 <option value="Striker">Striker</option>
             </select>
             <div class="searchPlayerName">
-                <input type="text" id="txtInput" placeholder="Skriv inn navn til Spiller" class="txtInput">
-                <input class="btnSearchPoke" id="searchPokeBtn" type="button" value="Søk etter Spiller" onclick="searchPlayerName()">
+                <input type="text" id="txtInput" placeholder="Skriv inn navn til Spiller" class="txtInput2">
+                <input class="btnSearchPoke" id="searchPlayerBtn" type="button" value="Søk etter Spiller" onclick="searchPlayerName()">
             </div>
             `
             showAllPlayers(allPlayers);
@@ -110,8 +107,14 @@
                 output.innerHTML += `
                 <div class="playerCard">
                 <img class="playerImg" src="${player.playerImg}" alt="Image of ${player.name}">
-                <p>${player.ranking}</p>
-                <h2> ${player.player} </h2>             
+                <h2> ${player.name}, ${player.age} </h2>
+                <p> Ranking: ${player.ranking}</p>
+                <div class="p"> 
+                <p class="p1">${player.nation},</p>
+                <p class="p1">${player.team}</p>     
+                </div>  
+                <p>${player.position}</p>
+                <p>${player.playerInfo}</p>
                 `;
             });
         }
@@ -144,10 +147,10 @@
                 console.log(playerPosition.value);
             }
             const searchPlayerName = () => {
-                const playerName = document.getElementById("txtInput")
+                const playerName = document.getElementById("txtInput2")
                 let name = playerName.value.toLowerCase();
                 let searchedPlayers = allPlayers.filter(player => player.name.toLowerCase().includes(name));
-                showAllPokemon(searchedPokemon);
+                showAllPlayers(searchedPlayers);
             }
 
     </script>

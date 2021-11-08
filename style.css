@@ -107,3 +107,8 @@ body{
 .playerImg{
     width: 250px;
 }
+
+.playerStats{
+    display: inline-flex;
+    justify-content: space-between;
+}

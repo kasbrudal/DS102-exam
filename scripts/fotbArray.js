@@ -146,13 +146,13 @@ var fotbArray = [
     },
 
     {
-        player:"İlkay Gündoğan",
+        name:"İlkay Gündoğan",
         nation: "Germany",
         ranking: 15,
         position:"Midfield",
         team:"Manchester City",
         age: 31,
-        playerInfo:"He won the Premier League in 2018, 2019 and 2021, the EFL Cup in 2018, 2019, 2020 and 2021, and the FA Cup in 2019.",
+        playerInfo:"Gündoğan won the Premier League in 2018, 2019 and 2021, the EFL Cup in 2018, 2019, 2020 and 2021, and the FA Cup in 2019.",
         playerImg:"images/gundogan.png",
     },
 
