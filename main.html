@@ -82,9 +82,31 @@
                 `;
             });
         }
+
+        const createFilterButtons2 = () => {
+            output.innerHTML = " ";
+            filterSection.innerHTML = `
+            <select name="type" id="type" onchange="showPlayerCountry()">
+                <option>Velg type</option>
+                <option value="France">Water</option>
+                <option value="Germany">Fire</option>
+                <option value="England">Grass</option>
+                <option value="Portugal">Normal</option>
+                <option value="Norway">Poison</option>
+                <option value="Flying">Flying</option>
+                <option value="Bug">Bug</option>
+            </select>
+            <div class="searchPlayerName">
+                <input type="text" id="txtInput" placeholder="Skriv inn navn til Spiller" class="txtInput">
+                <input class="btnSearchPoke" id="searchPokeBtn" type="button" value="Søk etter Pokemon" onclick="searchPokeName()">
+            </div>
+            `
+        }
+
+
         output.innerHTML="";
         showPokemonBtn.addEventListener("click", createFilterButtons);
-        showPlayersBtn.addEventListener("click", createFilterButtons);
+        showPlayersBtn.addEventListener("click", createFilterButtons2);
 
         
             const showPokeType = () => {

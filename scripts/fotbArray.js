@@ -6,7 +6,6 @@ var fotbArray = [
        position:"Right wing",
        team:"PSG",
        age: 34,
-<<<<<<< HEAD
        playerInfo:"Lionel Messi remains the best player in the world. Messi is known to be a Barcelona player, but he parted ways with them in the summer of 21 to join PSG. He scored 672 goals and 300 assists for Barcelona in 778 games",
        playerImg:"images/messi.png"
     },
@@ -99,13 +98,8 @@ var fotbArray = [
         age: 30,
         playerInfo:"van Dijk is probably the best defender in the world right now. He have won the Premier League and CL with Liverpool, and lots of the honor goes to him. He have helped Liverpool to become one of the best teams in the world right now",
         playerImg:"images/vandijk.png"
-    }
-=======
-       playerInfo:"hei",
-       playerImg:"images/messi.png",
-
-
     },
+
 
     {
         player:"N'Golo Kanté",
@@ -216,7 +210,6 @@ var fotbArray = [
         playerInfo:"Regarded as a highly technical, creative player, Sancho is known for his trickery and use of feints in one-on-one situations and has been described as one of the world's best young players.",
         playerImg:"images/sancho.png",
     },
->>>>>>> 8728e2b0dad2dccffaa9c49a11bfda73c425d895
 ]
 
 const getAllPlayers = () =>{
