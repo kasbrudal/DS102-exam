@@ -1,6 +1,6 @@
 var fotbArray = [
     {
-       player:"Lionel Messi",
+       name:"Lionel Messi",
        nation:"Argentina",
        ranking:1,
        position:"Right wing",
@@ -10,7 +10,7 @@ var fotbArray = [
        playerImg:"images/messi.png"
     },
     {
-        player:"Robert Lewandowski",
+        name:"Robert Lewandowski",
         nation:"Poland",
         ranking:2,
         position:"Striker",
@@ -20,7 +20,7 @@ var fotbArray = [
         playerImg:"images/lewandowski.png"
     },
     {
-        player:"Kevin De Bruyne",
+        name:"Kevin De Bruyne",
         nation:"Belgium",
         ranking:3,
         position:"Central Attacking Midfield",
@@ -30,7 +30,7 @@ var fotbArray = [
         playerImg:"images/bruyne.png"
     },
     {
-        player:"Cristiano Ronaldo",
+        name:"Cristiano Ronaldo",
         nation:"Portugal",
         ranking:4,
         position:"Striker",
@@ -40,7 +40,7 @@ var fotbArray = [
         playerImg:"images/ronaldo.png"
     },
     {
-        player:"Harry Kane",
+        name:"Harry Kane",
         nation:"England",
         ranking:5,
         position:"Striker",
@@ -50,7 +50,7 @@ var fotbArray = [
         playerImg:"images/kane.png"
     },
     {
-        player:"Mohamed Salah",
+        name:"Mohamed Salah",
         nation:"Egypt",
         ranking:6,
         position:"Right wing / Striker",
@@ -60,7 +60,7 @@ var fotbArray = [
         playerImg:"images/salah.png"
     },
     {
-        player:"Kylian Mbappe",
+        name:"Kylian Mbappe",
         nation:"France",
         ranking:7,
         position:"Striker",
@@ -70,7 +70,7 @@ var fotbArray = [
         playerImg:"images/mbappe.png"
     },
     {
-        player:"Neymar",
+        name:"Neymar",
         nation:"Brazil",
         ranking:8,
         position:"Left wing",
@@ -80,7 +80,7 @@ var fotbArray = [
         playerImg:"images/neymar.png"
     },
     {
-        player:"Erling Haaland",
+        name:"Erling Haaland",
         nation:"Norway",
         ranking:9,
         position:"Striker",
@@ -90,7 +90,7 @@ var fotbArray = [
         playerImg:"images/haaland.png"
     },
     {
-        player:"Virgil van Dijk",
+        name:"Virgil van Dijk",
         nation:"Holland",
         ranking:10,
         position:"Defender",
@@ -102,7 +102,7 @@ var fotbArray = [
 
 
     {
-        player:"N'Golo Kanté",
+        name:"N'Golo Kanté",
         nation: "France",
         ranking:11,
         position:"Central midfielder",
@@ -113,7 +113,7 @@ var fotbArray = [
     },
 
     {
-        player:"Thomas Muller",
+        name:"Thomas Muller",
         nation: "Germany",
         ranking:12,
         position:"Forward",
@@ -124,7 +124,7 @@ var fotbArray = [
     },
 
     {
-        player:"Jan Oblak",
+        name:"Jan Oblak",
         nation:"Slovenia",
         ranking:13,
         position:"Goalkeeper",
@@ -135,7 +135,7 @@ var fotbArray = [
     },
 
     {
-        player:"Joshua Kimmich",
+        name:"Joshua Kimmich",
         nation: "Germany",
         ranking: 14,
         position:"Midfielder",
@@ -146,7 +146,7 @@ var fotbArray = [
     },
 
     {
-        player:"Mohamed Salah",
+        name:"Mohamed Salah",
         nation: "Egypt",
         ranking: 15,
         position:"Forward",
@@ -157,7 +157,7 @@ var fotbArray = [
     },
 
     {
-        player:"Karim Benzema",
+        name:"Karim Benzema",
         nation: "France",
         ranking: 16,
         position:"Striker",
@@ -168,7 +168,7 @@ var fotbArray = [
     },
 
     {
-        player:"Leon Goretzka",
+        name:"Leon Goretzka",
         nation: "Germany",
         ranking: 17,
         position:"Midfielder",
@@ -179,7 +179,7 @@ var fotbArray = [
     },
 
     {
-        player:"Riyad Mahrez",
+        name:"Riyad Mahrez",
         nation: "France",
         ranking: 18,
         position:"Winger",
@@ -190,7 +190,7 @@ var fotbArray = [
     },
 
     {
-        player:"Ruben Dias",
+        name:"Ruben Dias",
         nation: "Portugal",
         ranking: 19,
         position:"Centre-back",
@@ -201,7 +201,7 @@ var fotbArray = [
     },
 
     {
-        player:"Jadon Sancho",
+        name:"Jadon Sancho",
         nation: "England",
         ranking: 20,
         position:"Winger",
