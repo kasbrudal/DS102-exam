@@ -87,12 +87,12 @@
             output.innerHTML = " ";
             filterSection.innerHTML = `
             <select name="type" id="type" onchange="showPlayerCountry()">
-                <option>Velg type</option>
-                <option value="France">Water</option>
-                <option value="Germany">Fire</option>
-                <option value="England">Grass</option>
-                <option value="Portugal">Normal</option>
-                <option value="Norway">Poison</option>
+                <option>Select position</option>
+                <option value="GoalKeeper">Water</option>
+                <option value="Defender">Fire</option>
+                <option value="Midfielder">Grass</option>
+                <option value="Forward">Normal</option>
+                <option value="Striker">Poison</option>
                 <option value="Flying">Flying</option>
                 <option value="Bug">Bug</option>
             </select>
@@ -105,12 +105,13 @@
         };
         const showAllPlayers = (players) => {
             output.innerHTML="";
+            console.log(players)
             players.forEach(player =>{
                 output.innerHTML += `
                 <div class="playerCard">
-                <img src="${player.image}" alt="Image of ${player.name}" width="150px">
+                <img src=${player.image} alt="Image of ${player.player}" width="150px">
                 <p>${player.ranking}</p>
-                <h2> ${player.name} </h2>             
+                <h2> ${player.player} </h2>             
                 `;
             });
         }
