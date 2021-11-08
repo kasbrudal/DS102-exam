@@ -86,19 +86,19 @@
         const createFilterButtons2 = () => {
             output.innerHTML = " ";
             filterSection.innerHTML = `
-            <select name="type" id="type" onchange="showPlayerCountry()">
+            <select name="type" id="type" onchange="showPlayerPosition()">
                 <option>Select position</option>
-                <option value="GoalKeeper">Water</option>
-                <option value="Defender">Fire</option>
-                <option value="Midfielder">Grass</option>
-                <option value="Forward">Normal</option>
-                <option value="Striker">Poison</option>
-                <option value="Flying">Flying</option>
-                <option value="Bug">Bug</option>
+                <option value="Goalkeeper">GoalKeeper</option>
+                <option value="Defender">Defender</option>
+                <option value="Midfield">Midfielder</option>
+                <option value="Central Attacking Midfield">CAM</option>
+                <option value="Right wing">Right Wing</option>
+                <option value="Left wing">Left Wing</option>
+                <option value="Striker">Striker</option>
             </select>
             <div class="searchPlayerName">
                 <input type="text" id="txtInput" placeholder="Skriv inn navn til Spiller" class="txtInput">
-                <input class="btnSearchPoke" id="searchPokeBtn" type="button" value="Søk etter Pokemon" onclick="searchPokeName()">
+                <input class="btnSearchPoke" id="searchPokeBtn" type="button" value="Søk etter Spiller" onclick="searchPlayerName()">
             </div>
             `
             showAllPlayers(allPlayers);
@@ -133,6 +133,20 @@
                 const pokeName = document.getElementById("txtInput")
                 let name = pokeName.value.toLowerCase();
                 let searchedPokemon = allPokemon.filter(pokemon => pokemon.name.toLowerCase().includes(name));
+                showAllPokemon(searchedPokemon);
+            }
+
+            const showPlayerPosition = () => {
+                const playerPosition = document.getElementById("type")
+                let position = playerPosition.value;
+                let selectedPosition = allPlayers.filter( player => player.position === position);
+                showAllPlayers(selectedPosition);
+                console.log(playerPosition.value);
+            }
+            const searchPlayerName = () => {
+                const playerName = document.getElementById("txtInput")
+                let name = playerName.value.toLowerCase();
+                let searchedPlayers = allPlayers.filter(player => player.name.toLowerCase().includes(name));
                 showAllPokemon(searchedPokemon);
             }
 
