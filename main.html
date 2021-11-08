@@ -22,7 +22,7 @@
         <div class="informationSection"><h2>Velg kategori du vil lære om</h2></div>
         <div class="select-section">
             <button id="pokemon-btn" class="pokemon">Pokemon</button>
-            <button id="fotball" class="fotball">Fotball</button>
+            <button id="football-btn" class="fotball">Fotball</button>
         </div>
         <div class="filterSection" id="filterSection">
 
@@ -30,14 +30,17 @@
         <div class="output" id="outputInfo">
         </div>
     <script src="scripts/pokeArray.js"></script>
+    <script src="scripts/fotbArray.js"></script>
     <script>
         let filterSection = document.getElementById("filterSection")
         let showPokemonBtn = document.getElementById("pokemon-btn");
+        let showPlayersBtn = document.getElementById("football-btn")
         let output = document.getElementById("outputInfo");
         let searchPokeBtn = document.getElementById("searchPokeBtn");
         
 
         const allPokemon = getAllPokemon();
+        const allPlayers = getAllPlayers();
         
         const createFilterButtons = () => {
             
@@ -75,14 +78,14 @@
                 <div class="p">
 		 		<b class="p1" style="background:${pokemon.color1}">${pokemon.type1}   </b>
                  <b class="p1" style="background:${pokemon.color2}">${pokemon.type2}</b>
-                    </div>
-                
-                 
+                    </div>               
                 `;
             });
         }
-        output.innerHTML=" ";
+        output.innerHTML="";
         showPokemonBtn.addEventListener("click", createFilterButtons);
+        showPlayersBtn.addEventListener("click", createFilterButtons);
+
         
             const showPokeType = () => {
                 const pokeType = document.getElementById("type")
