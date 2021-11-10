@@ -108,7 +108,7 @@ var fotbArray = [
         position:"Midfield",
         team:"Chelsea",
         age: 30,
-        playerInfo:" A dynamic, diminutive, and disciplined player,[92][93][94] Kanté is known for his relentless energy and excellent ball-winning abilities as a box-to-box midfielder in the centre of the pitch.",
+        playerInfo:" A dynamic, diminutive, and disciplined player, Kanté is known for his relentless energy and excellent ball-winning abilities as a box-to-box midfielder in the centre of the pitch.",
         playerImg:"images/kante.png",
     },
 

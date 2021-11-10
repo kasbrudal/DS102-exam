@@ -39,30 +39,107 @@
 
         const allPokemon = getAllPokemon();
         const allPlayers = getAllPlayers();
-
+        var questions = 19
+let index=0;
         const loadQuiz = () => {
-            console.log("hei")
+            questions = questions-1;
+            console.log(questions)
+            console.log(allPlayers[questions].name)
+
+
+           // question1();
+            question2();
+           // question3();
+           // question4();
+            //question5();
+
             output.innerHTML = ""
             output.innerHTML += `
-            <h2>${questionArray[0].question}</h2>
-            <p>option one</p>
-            <p>option two</p>
-            <p>option three</p>
-            <p>option four</p>
+            <h2>${questionArray[index-1].question}</h2>
+            <button onclick="loadQuiz()">a:${questionArray[index-1].answers[0].o}</button>
+            <p>b:${questionArray[index-1].answers[1].o}</p>
+            <p>c:${questionArray[index-1].answers[2].o}</p>
+            <p>d:${questionArray[index-1].answers[3].o}</p>
             `;
 
 
         };
+const questionArray=[];
 
 
-        var questionArray = [
-            {
-                question: "How old is Lewandowski?", answer1:13, answer2:34, answer3:32, answer4:33
-            }
-        ];
+const question1 = () => {
+    var questionArrayItem = {};
+    questionArrayItem["id"]=index++;
+    questionArrayItem["question"]=`How old is ${allPlayers[questions].name} ?`;
+    let answer1 = Math.floor(Math.random() * 20);
+    let answer2 = Math.floor(Math.random() * 20);
+    let answer3 = Math.floor(Math.random() * 20);
+    let answer4 = allPlayers[questions].age;
+    questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
+    console.log(questionArrayItem["answers"]);
+    console.log(questionArray)
+    questionArray.push(questionArrayItem);
+}
+
+const question2 = () => {
+    var questionArrayItem = {};
+    questionArrayItem["id"]=index++;
+    questionArrayItem["question"]=`Who is this <img src="${allPlayers[questions].playerImg}"> ?`;
+    let answer1 = Math.floor(Math.random() * 20);
+    let answer2 = Math.floor(Math.random() * 20);
+    let answer3 = Math.floor(Math.random() * 20);
+    let answer4 = allPlayers[questions].age;
+    questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
+    console.log(questionArrayItem["answers"]);
+    console.log(questionArray)
+    questionArray.push(questionArrayItem);
+}
+
+const question3 = () => {
+    var questionArrayItem = {};
+    questionArrayItem["id"]=index++;
+    questionArrayItem["question"]=`How old is ${allPlayers[questions].name} ?`;
+    let answer1 = Math.floor(Math.random() * 20);
+    let answer2 = Math.floor(Math.random() * 20);
+    let answer3 = Math.floor(Math.random() * 20);
+    let answer4 = allPlayers[questions].age;
+    questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
+    console.log(questionArrayItem["answers"]);
+    console.log(questionArray)
+    questionArray.push(questionArrayItem);
+}
+
+const question4 = () => {
+    var questionArrayItem = {};
+    questionArrayItem["id"]=index++;
+    questionArrayItem["question"]=`How old is ${allPlayers[questions].name} ?`;
+    let answer1 = Math.floor(Math.random() * 20);
+    let answer2 = Math.floor(Math.random() * 20);
+    let answer3 = Math.floor(Math.random() * 20);
+    let answer4 = allPlayers[questions].age;
+    questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
+    console.log(questionArrayItem["answers"]);
+    console.log(questionArray)
+    questionArray.push(questionArrayItem);
+}
+
+const question5 = () => {
+    var questionArrayItem = {};
+    questionArrayItem["id"]=index++;
+    questionArrayItem["question"]=`How old is ${allPlayers[questions].name} ?`;
+    let answer1 = Math.floor(Math.random() * 20);
+    let answer2 = Math.floor(Math.random() * 20);
+    let answer3 = Math.floor(Math.random() * 20);
+    let answer4 = allPlayers[questions].age;
+    questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
+    console.log(questionArrayItem["answers"]);
+    console.log(questionArray)
+    questionArray.push(questionArrayItem);
+}
+        
 
 
-        showPokeQuizBtn.addEventListener("click", loadQuiz);
+        showPokeQuizBtn.addEventListener("click", loadQuiz)
         //showPlayerQuizBtn.addEventListener("click", createFilterButtons2);
 
         </script>
