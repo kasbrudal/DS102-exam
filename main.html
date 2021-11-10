@@ -9,17 +9,20 @@
 </head>
 <body>
     <div class="nav">
-        <div class="nav-head">
-            <img src="images/info.png" alt="information logo" height="100px">
-            <h1>Informasjon</h1>
-        </div>
-        <div class="nav-head-2">
-            <img src="images/question.png" alt="questionmark logo" height="100px">
-            <h2>Quiz</h2>
-        </div>
-        
+        <a href="main.html" class="active">
+            <div class="nav-head-info">
+                <img src="images/info.png" alt="information logo" height="100px">
+                <h1>Information</h1>
+            </div>
+        </a>
+        <a href="quiz.html">
+            <div class="nav-head-quiz">
+                <img src="images/question.png" alt="questionmark logo" height="100px">
+                <h2>Quiz</h2>
+            </div>
+        </a>
     </div>
-        <div class="informationSection"><h2>Velg kategori du vil lære om</h2></div>
+        <div class="informationSection"><h2>Choose category you want to learn about before the quiz</h2></div>
         <div class="select-section">
             <button id="pokemon-btn" class="pokemon">Pokemon</button>
             <button id="football-btn" class="fotball">Fotball</button>
@@ -27,7 +30,10 @@
         <div class="filterSection" id="filterSection">
 
         </div>
-        <div class="output" id="outputInfo">
+        <div class="output" id="outputInfo"></div>
+        <div class="footer">
+            <div class="header-2">Click one of the buttons to choose topic</div>
+            <p>Done reading? Click here to test yourself</p>
         </div>
     <script src="scripts/pokeArray.js"></script>
     <script src="scripts/fotbArray.js"></script>
