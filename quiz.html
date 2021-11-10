@@ -43,19 +43,201 @@
 
         const allPokemon = getAllPokemon();
         const allPlayers = getAllPlayers();
-        var questions = 19
+        var questions = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+        var remainingQuestions = [0,1,2,3,4,5,6,7,8,9]
+        var positions = ["Goalkeeper", "Defender", "Midfield", "Central Attacking Midfield", "Right wing", "Left wing", "Striker"]
+        
 let index=0;
         const loadQuiz = () => {
-            questions = questions-1;
-            console.log(questions)
-            console.log(allPlayers[questions].name)
+            var randomNumber = questions[Math.floor(Math.random()*questions.length)]
+            questions.splice(questions.indexOf(randomNumber), 1)
+            let myarray={"1": ()=>question1() ,"2":()=>question2(), "3":()=>question3(), 4:()=>question4(), "5":()=>question5(), };
+                const question1 = () => {
+                    remainingQuestions.pop();
+                    var questionArrayItem = {};
+                    questionArrayItem["id"]=index++;
+                    questionArrayItem["question"]=`How old is ${allPlayers[randomNumber].name} <img src="${allPlayers[randomNumber].playerImg}"> ?`;
+                    let answer4 = allPlayers[randomNumber].age;
+                    let answer1 = Math.floor(Math.random() * 20)+20;
+                    if (answer1 == answer4){
+                        answer1++
+                        console.log("1 lik")
+                    };
+                    let answer2 = Math.floor(Math.random() * 20)+20;
+                    for(let valuecheck = 0; valuecheck < 1; valuecheck++){
+                    if(answer2 == answer4 || answer2 == answer1){
+                        answer2++
+                        console.log("2 lik")
+                    }}
+                    let answer3 = Math.floor(Math.random() * 20)+20;
+                    for(let valuecheck = 0; valuecheck < 2; valuecheck++){
+                    if(answer3 == answer4 || answer3 == answer1 || answer3 == answer2){
+                        answer3++
+                        console.log("3 lik")
+                    }}
+                    
+                    questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
+                    questionArray.push(questionArrayItem);
+                }
 
+                const question2=()=>{
+                    remainingQuestions.pop();
+                    var questionArrayItem = {};
+                    questionArrayItem["id"]=index++;
+                    questionArrayItem["question"]=`Who is this? <img src="${allPlayers[randomNumber].playerImg}"> ?`;
+                    let answer4 = allPlayers[randomNumber].name;
+                    var random1 = [Math.floor(Math.random() * 20)];
+                    
+                        if (random1 == randomNumber){
+                            random1++
+                            console.log("1 lik")
+                        };
+                        if(random1 >= 20){
+                            random1=0;
+                        }
+                    let answer1 = allPlayers[random1].name;
+                    var random2 = [Math.floor(Math.random() * 20)];
+                    
+                    for(let valuecheck = 0; valuecheck < 1; valuecheck++){
+                        if(random2 == randomNumber || random2 == random1){
+                            random2++
+                            console.log("2 lik")
+                        }
+                        if(random2 >= 20){
+                                random2=0;
+                        }
+                };
+                    let answer2 = allPlayers[random2].name;
+                    var random3 = [Math.floor(Math.random() * 20)];
+                    
+                    for(let valuecheck = 0; valuecheck < 2; valuecheck++){
+                        if(random3 == randomNumber || random3 == random1 || random3 == random2){
+                            random3++
+                            console.log("3 lik")
+                        }
+                        if(random3 >= 20){
+                            random3=0;
+                        }
+                };
+                    let answer3 = allPlayers[random3].name;
+                    
+                    questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
+                    questionArray.push(questionArrayItem);
+                }
 
-           // question1();
-            question2();
-           // question3();
-           // question4();
-            //question5();
+                const question3 = () => {
+                    remainingQuestions.pop();
+                    var questionArrayItem = {};
+                    questionArrayItem["id"]=index++;
+                    questionArrayItem["question"]=`What position does he play? <img src="${allPlayers[randomNumber].playerImg}"> ?`;
+                    let answer4 = allPlayers[randomNumber].position;
+                    var random1 = [Math.floor(Math.random() * 7)];
+                    var check1 = positions[random1]
+                    
+                    for(let valuecheck = 0; valuecheck < 2; valuecheck++){
+                        if (positions[random1] == answer4){
+                            random1++
+                            console.log("1 lik")
+                        };
+                        if(random1 >= 7){
+                            random1=0;
+                            valuecheck=0;
+                        }
+                    };
+
+                    let answer1 = positions[random1];
+                    console.log(answer1)
+                    
+                    var random2 = [Math.floor(Math.random() * 7)];
+                    var check2 = positions[random2]
+                    
+                    for(let valuecheck = 0; valuecheck < 2; valuecheck++){
+                        if(positions[random2] == answer4 || positions[random2] == answer1){
+                            random2++
+                            console.log("2 lik")
+                        }
+                        if(random2 >= 7){
+                                random2=0;
+                                valuecheck=0;
+                        }
+                };
+                    let answer2 = positions[random2];
+                    var random3 = [Math.floor(Math.random() * 7)];
+                    var check3 = positions[random3]
+                    
+                    for(let valuecheck = 0; valuecheck < 3; valuecheck++){
+                        if(positions[random3] == answer4 || positions[random3] == answer1 || positions[random3] == answer2){
+                            random3++
+                            console.log("3 lik")
+                        }
+                        if(random3 >= 7){
+                            random3=0;
+                            valuecheck=0;
+                        }
+                };
+                    let answer3 = positions[random3];
+                    
+                    questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
+                    questionArray.push(questionArrayItem);
+                }
+
+                const question4 = () => {
+                    remainingQuestions.pop();
+                    var questionArrayItem = {};
+                    questionArrayItem["id"]=index++;
+                    questionArrayItem["question"]=`How old is ${allPlayers[randomNumber].name} <img src="${allPlayers[randomNumber].playerImg}"> ?`;
+                    let answer4 = allPlayers[randomNumber].age;
+                    let answer1 = Math.floor(Math.random() * 20)+20;
+                    if (answer1 == answer4){
+                        answer1++
+                        console.log("1 lik")
+                    };
+                    let answer2 = Math.floor(Math.random() * 20)+20;
+                    for(let valuecheck = 0; valuecheck < 1; valuecheck++){
+                    if(answer2 == answer4 || answer2 == answer1){
+                        answer2++
+                        console.log("2 lik")
+                    }}
+                    let answer3 = Math.floor(Math.random() * 20)+20;
+                    for(let valuecheck = 0; valuecheck < 2; valuecheck++){
+                    if(answer3 == answer4 || answer3 == answer1 || answer3 == answer2){
+                        answer3++
+                        console.log("3 lik")
+                    }}
+                    
+                    questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
+                    questionArray.push(questionArrayItem);
+                }
+
+                const question5 = () => {
+                    remainingQuestions.pop();
+                    var questionArrayItem = {};
+                    questionArrayItem["id"]=index++;
+                    questionArrayItem["question"]=`How old is ${allPlayers[randomNumber].name} <img src="${allPlayers[randomNumber].playerImg}"> ?`;
+                    let answer4 = allPlayers[randomNumber].age;
+                    let answer1 = Math.floor(Math.random() * 20)+20;
+                    if (answer1 == answer4){
+                        answer1++
+                        console.log("1 lik")
+                    };
+                    let answer2 = Math.floor(Math.random() * 20)+20;
+                    for(let valuecheck = 0; valuecheck < 1; valuecheck++){
+                    if(answer2 == answer4 || answer2 == answer1){
+                        answer2++
+                        console.log("2 lik")
+                    }}
+                    let answer3 = Math.floor(Math.random() * 20)+20;
+                    for(let valuecheck = 0; valuecheck < 2; valuecheck++){
+                    if(answer3 == answer4 || answer3 == answer1 || answer3 == answer2){
+                        answer3++
+                        console.log("3 lik")
+                    }}
+                    
+                    questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
+                    questionArray.push(questionArrayItem);
+                }
+            let myfunc=myarray["3"];
+            myfunc();
 
             output.innerHTML = ""
             output.innerHTML += `
@@ -71,75 +253,15 @@ let index=0;
 const questionArray=[];
 
 
-const question1 = () => {
-    var questionArrayItem = {};
-    questionArrayItem["id"]=index++;
-    questionArrayItem["question"]=`How old is ${allPlayers[questions].name} ?`;
-    let answer1 = Math.floor(Math.random() * 20);
-    let answer2 = Math.floor(Math.random() * 20);
-    let answer3 = Math.floor(Math.random() * 20);
-    let answer4 = allPlayers[questions].age;
-    questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
-    console.log(questionArrayItem["answers"]);
-    console.log(questionArray)
-    questionArray.push(questionArrayItem);
-}
 
-const question2 = () => {
-    var questionArrayItem = {};
-    questionArrayItem["id"]=index++;
-    questionArrayItem["question"]=`Who is this <img src="${allPlayers[questions].playerImg}"> ?`;
-    let answer1 = Math.floor(Math.random() * 20);
-    let answer2 = Math.floor(Math.random() * 20);
-    let answer3 = Math.floor(Math.random() * 20);
-    let answer4 = allPlayers[questions].age;
-    questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
-    console.log(questionArrayItem["answers"]);
-    console.log(questionArray)
-    questionArray.push(questionArrayItem);
-}
 
-const question3 = () => {
-    var questionArrayItem = {};
-    questionArrayItem["id"]=index++;
-    questionArrayItem["question"]=`How old is ${allPlayers[questions].name} ?`;
-    let answer1 = Math.floor(Math.random() * 20);
-    let answer2 = Math.floor(Math.random() * 20);
-    let answer3 = Math.floor(Math.random() * 20);
-    let answer4 = allPlayers[questions].age;
-    questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
-    console.log(questionArrayItem["answers"]);
-    console.log(questionArray)
-    questionArray.push(questionArrayItem);
-}
 
-const question4 = () => {
-    var questionArrayItem = {};
-    questionArrayItem["id"]=index++;
-    questionArrayItem["question"]=`How old is ${allPlayers[questions].name} ?`;
-    let answer1 = Math.floor(Math.random() * 20);
-    let answer2 = Math.floor(Math.random() * 20);
-    let answer3 = Math.floor(Math.random() * 20);
-    let answer4 = allPlayers[questions].age;
-    questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
-    console.log(questionArrayItem["answers"]);
-    console.log(questionArray)
-    questionArray.push(questionArrayItem);
-}
 
-const question5 = () => {
-    var questionArrayItem = {};
-    questionArrayItem["id"]=index++;
-    questionArrayItem["question"]=`How old is ${allPlayers[questions].name} ?`;
-    let answer1 = Math.floor(Math.random() * 20);
-    let answer2 = Math.floor(Math.random() * 20);
-    let answer3 = Math.floor(Math.random() * 20);
-    let answer4 = allPlayers[questions].age;
-    questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
-    console.log(questionArrayItem["answers"]);
-    console.log(questionArray)
-    questionArray.push(questionArrayItem);
-}
+
+
+
+
+
         
 
 
