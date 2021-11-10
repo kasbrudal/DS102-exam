@@ -68,14 +68,15 @@
             output.innerHTML="";
             pokemons.forEach(pokemon =>{
                 output.innerHTML += `
-                <div class="pokeCard">
-                <img src="${pokemon.image}" alt="Image of ${pokemon.name}" width="250px">
+                <div class="playCard">
+                <img src="${pokemon.image}" class="playImg" alt="Image of ${pokemon.name}">
                 <p>${pokemon.dexNumber}</p>
                 <h2> ${pokemon.name} </h2>
                 <div class="p">
-		 		<b class="p1" style="background:${pokemon.color1}">${pokemon.type1}   </b>
-                 <b class="p1" style="background:${pokemon.color2}">${pokemon.type2}</b>
-                    </div>               
+		 		    <b class="p1" style="background:${pokemon.color1}">${pokemon.type1}   </b>
+                    <b class="p1" style="background:${pokemon.color2}">${pokemon.type2}</b>
+                </div>
+                <p class="playInfo">${pokemon.pokeInfo}<p/>               
                 `;
             });
         }
@@ -93,8 +94,8 @@
                 <option value="Left wing">Left Wing</option>
                 <option value="Striker">Striker</option>
             </select>
-            <div class="searchPlayerName">
-                <input type="text" id="txtInput" placeholder="Skriv inn navn til Spiller" class="txtInput2">
+            <div class="searchPokeName">
+                <input type="text" id="txtInput" placeholder="Skriv inn navn til Spiller" class="txtInput">
                 <input class="btnSearchPoke" id="searchPlayerBtn" type="button" value="Søk etter Spiller" onclick="searchPlayerName()">
             </div>
             `
@@ -105,16 +106,16 @@
             console.log(players)
             players.forEach(player =>{
                 output.innerHTML += `
-                <div class="playerCard">
-                <img class="playerImg" src="${player.playerImg}" alt="Image of ${player.name}">
-                <h2> ${player.name}, ${player.age} </h2>
-                <p> Ranking: ${player.ranking}</p>
+                <div class="playCard">
+                <img class="playImg" src="${player.playerImg}" alt="Image of ${player.name}">
+                <b> Ranking: ${player.ranking}</b>
+                <h2> ${player.name}, ${player.age} years</h2>
                 <div class="p"> 
-                <p class="p1">${player.nation},</p>
-                <p class="p1">${player.team}</p>     
+                <b class="p1">${player.nation},</b>
+                <b class="p1">${player.team}</b>     
                 </div>  
-                <p>${player.position}</p>
-                <p>${player.playerInfo}</p>
+                <b>${player.position}</b>
+                <p class="playInfo">${player.playerInfo}</p>
                 `;
             });
         }
