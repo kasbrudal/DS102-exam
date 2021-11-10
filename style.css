@@ -84,28 +84,42 @@ body{
 .searchPokeName{
     display: inline-flex;
 }
-.pokeCard{
+
+.playCard:hover{
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+.playInfo{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgb(217, 252, 255);
-    border: 1px solid black;
+    justify-content: center;
+    text-align: center;
+    font-size: 22px;
+}
+
+
+.playCard:hover .playInfo{
+    display: block;
+    background-color: rgb(224, 224, 83);
+    border-radius: 7px;
+    border: 1px dotted black;
 }
 .p{
-    display: inline-flex;   
+    display: inline-flex;  
+     font-size: 20px ;
 }
 .p1{
     margin: 3px;   
 }
-.playerCard{
+.playCard{
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: rgb(217, 252, 255);
     border: 1px solid black;
 }
-.playerImg{
-    width: 250px;
+.playImg{
+    width: 200px;
 }
 
 .playerStats{
