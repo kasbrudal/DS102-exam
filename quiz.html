@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title> Quizpage</title>
+</head>
+<body>
+    <div class="nav">
+        <div class="nav-head">
+            <img src="images/info.png" alt="information logo" height="100px">
+            <h1>Informasjon</h1>
+        </div>
+        <div class="nav-head-2">
+            <img src="images/question.png" alt="questionmark logo" height="100px">
+            <h2>Quiz</h2>
+        </div>
+        </div>
+
+        <div class="informationSection"><h2>Choose topic for the quiz</h2></div>
+        <div class="select-section">
+            <button id="pokemon-btn" class="pokemon">Pokemon</button>
+            <button id="football-btn" class="fotball">Fotball</button>
+        </div>
+
+        </div>
+        <div class="output" id="outputInfo">
+        </div>
+
+        <script src="scripts/pokeArray.js"></script>
+        <script src="scripts/fotbArray.js"></script>
+        <script>
+
+        let showPokeQuizBtn = document.getElementById("pokemon-btn");
+        let showPlayerQuizBtn = document.getElementById("football-btn");
+        let output = document.getElementById("outputInfo");
+
+        const allPokemon = getAllPokemon();
+        const allPlayers = getAllPlayers();
+
+        const loadQuiz = () => {
+            console.log("hei")
+            output.innerHTML = ""
+            output.innerHTML += `
+            <h2>${questionArray[0].question}</h2>
+            <p>option one</p>
+            <p>option two</p>
+            <p>option three</p>
+            <p>option four</p>
+            `;
+
+
+        };
+
+
+        var questionArray = [
+            {
+                question: "How old is Lewandowski?", answer1:13, answer2:34, answer3:32, answer4:33
+            }
+        ];
+
+
+        showPokeQuizBtn.addEventListener("click", loadQuiz);
+        //showPlayerQuizBtn.addEventListener("click", createFilterButtons2);
+
+        </script>
+
+</body>
+</html>

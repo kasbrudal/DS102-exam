@@ -147,7 +147,8 @@
                 console.log(playerPosition.value);
             }
             const searchPlayerName = () => {
-                const playerName = document.getElementById("txtInput2")
+                const playerName = document.getElementById("txtInput")
+                console.log(playerName.value)
                 let name = playerName.value.toLowerCase();
                 let searchedPlayers = allPlayers.filter(player => player.name.toLowerCase().includes(name));
                 showAllPlayers(searchedPlayers);
