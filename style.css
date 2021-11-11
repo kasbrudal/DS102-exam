@@ -80,6 +80,16 @@ a{
     box-shadow: 0 2px gray;
     transform: translateY(5px);
 }
+.selected-Section{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: underline;
+
+}
 
 
 .output{
@@ -103,7 +113,7 @@ a{
 }
 
 .playCard:hover{
-    cursor: pointer;
+  
     transform: scale(1.03);
 }
 
@@ -151,15 +161,12 @@ a{
     margin-bottom: 0;
     flex-shrink: 0;
 }
-.header-2{
+.header-footer{
     font-weight: bold;
     font-size: 24px;
 }
-.footer p{
-    
-    justify-content: flex-end;
-}
-@media only screen and (max-width: 768px) {
+
+@media only screen and (max-width: 860px) {
 .output{
     display: grid;
     grid-template-columns: repeat(2, 1fr);

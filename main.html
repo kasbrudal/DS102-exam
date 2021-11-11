@@ -32,7 +32,7 @@
         </div>
         <div class="output" id="outputInfo"></div>
         <div class="footer">
-            <div class="header-2">Click one of the buttons to choose topic</div>
+            <div class="header-footer">Click one of the buttons to choose topic</div>
             <p>Done reading? Click here to test yourself</p>
         </div>
     <script src="scripts/pokeArray.js"></script>
@@ -52,6 +52,9 @@
             
             output.innerHTML = " ";
             filterSection.innerHTML = `
+            <div class="selected-Section">
+                Pokemons
+            </div>
             <select name="type" id="type" onchange="showPokeType()">
                 <option>Velg type</option>
                 <option value="Water">Water</option>
@@ -90,6 +93,9 @@
         const createFilterButtons2 = () => {
             output.innerHTML = " ";
             filterSection.innerHTML = `
+            <div class="selected-Section">
+                Football players
+            </div>
             <select name="type" id="type" onchange="showPlayerPosition()">
                 <option>Select position</option>
                 <option value="Goalkeeper">GoalKeeper</option>
