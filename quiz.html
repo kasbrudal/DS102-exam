@@ -40,6 +40,10 @@
         <div>
             <div id="highScore"></div>
         </div>
+        <div class="footer">
+            <div class="header-footer">Click one of the buttons to choose topic</div>
+            <a href="main.html"><u><p>Not read? Click here to find topics</p></u></a>
+        </div>
 
         <script src="scripts/pokeArray.js"></script>
         <script src="scripts/fotbArray.js"></script>
@@ -58,7 +62,7 @@
         var remainingQuestions = [0,1,2,3,4,5,6,7,8,9]
         var positions = ["Goalkeeper", "Defender", "Midfield", "Central Attacking Midfield", "Right wing", "Left wing", "Striker"]
         
-let index=0;
+        let index=0;
         const loadQuiz = () => {
             var randomNumber = questions[Math.floor(Math.random()*questions.length)]
             questions.splice(questions.indexOf(randomNumber), 1)

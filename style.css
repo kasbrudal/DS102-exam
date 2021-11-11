@@ -63,7 +63,7 @@ a{
 .pokemon, .fotball{
     font-size: 20px;
     border: 1px dotted black;
-    background-color: #5b71f1;
+    background-color: #2342f1;
     border-radius: 10px;
     padding: 20px 40px;
     margin: 12px;
@@ -79,6 +79,16 @@ a{
 .pokemon:active, .fotball:active{
     box-shadow: 0 2px gray;
     transform: translateY(5px);
+}
+.selected-Section{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: underline;
+
 }
 
 
@@ -103,7 +113,7 @@ a{
 }
 
 .playCard:hover{
-    cursor: pointer;
+  
     transform: scale(1.03);
 }
 
@@ -147,19 +157,16 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #da1818;
+    background: #e62020;
     margin-bottom: 0;
     flex-shrink: 0;
 }
-.header-2{
+.header-footer{
     font-weight: bold;
     font-size: 24px;
 }
-.footer p{
-    
-    justify-content: flex-end;
-}
-@media only screen and (max-width: 768px) {
+
+@media only screen and (max-width: 970px) {
 .output{
     display: grid;
     grid-template-columns: repeat(2, 1fr);

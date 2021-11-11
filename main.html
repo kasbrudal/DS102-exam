@@ -8,7 +8,7 @@
     <title>Information page</title>
 </head>
 <body>
-    <div class="nav">
+    <nav class="nav">
         <a href="main.html" class="active">
             <div class="nav-head-info">
                 <img src="images/info.png" alt="information logo" height="100px">
@@ -21,23 +21,24 @@
                 <h2>Quiz</h2>
             </div>
         </a>
-    </div>
-        <div class="informationSection"><h2>Choose category you want to learn about before the quiz</h2></div>
-        <div class="select-section">
+    </nav>
+        <section class="informationSection"><h2>Choose category you want to learn about before the quiz</h2></section>
+        <section class="select-section">
             <button id="pokemon-btn" class="pokemon">Pokemon</button>
             <button id="football-btn" class="fotball">Fotball</button>
-        </div>
-        <div class="filterSection" id="filterSection">
+        </section>
+        <section class="filterSection" id="filterSection">
 
-        </div>
+        </section>
         <div class="output" id="outputInfo"></div>
         <div class="footer">
-            <div class="header-2">Click one of the buttons to choose topic</div>
-            <p>Done reading? Click here to test yourself</p>
+            <div class="header-footer">Click one of the buttons to choose topic</div>
+            <a href="quiz.html"><u><p>Done reading? Click here to test yourself</p></u></a>
         </div>
     <script src="scripts/pokeArray.js"></script>
     <script src="scripts/fotbArray.js"></script>
     <script>
+        
         let filterSection = document.getElementById("filterSection")
         let showPokemonBtn = document.getElementById("pokemon-btn");
         let showPlayersBtn = document.getElementById("football-btn")
@@ -52,6 +53,9 @@
             
             output.innerHTML = " ";
             filterSection.innerHTML = `
+            <div class="selected-Section">
+                Pokemons
+            </div>
             <select name="type" id="type" onchange="showPokeType()">
                 <option>Velg type</option>
                 <option value="Water">Water</option>
@@ -90,6 +94,9 @@
         const createFilterButtons2 = () => {
             output.innerHTML = " ";
             filterSection.innerHTML = `
+            <div class="selected-Section">
+                Football players
+            </div>
             <select name="type" id="type" onchange="showPlayerPosition()">
                 <option>Select position</option>
                 <option value="Goalkeeper">GoalKeeper</option>
