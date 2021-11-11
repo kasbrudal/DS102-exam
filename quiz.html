@@ -30,7 +30,15 @@
         </div>
 
         </div>
-        <div class="output" id="outputInfo">
+        <div class="output" id="outputInfo"></div>
+        </div>
+
+        <div>
+            <div id="totalScore"></div>
+        </div>
+
+        <div>
+            <div id="highScore"></div>
         </div>
         <div class="footer">
             <div class="header-footer">Click one of the buttons to choose topic</div>
@@ -44,6 +52,9 @@
         let showPokeQuizBtn = document.getElementById("pokemon-btn");
         let showPlayerQuizBtn = document.getElementById("football-btn");
         let output = document.getElementById("outputInfo");
+        let totalScore = document.getElementById("totalScore")
+
+        
 
         const allPokemon = getAllPokemon();
         const allPlayers = getAllPlayers();
@@ -189,7 +200,7 @@
                     remainingQuestions.pop();
                     var questionArrayItem = {};
                     questionArrayItem["id"]=index++;
-                    questionArrayItem["question"]=`How old is ${allPlayers[randomNumber].name} <img src="${allPlayers[randomNumber].playerImg}"> ?`;
+                    questionArrayItem["question"]=`Who is the?`;
                     let answer4 = allPlayers[randomNumber].age;
                     let answer1 = Math.floor(Math.random() * 20)+20;
                     if (answer1 == answer4){
@@ -240,20 +251,55 @@
                     questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
                     questionArray.push(questionArrayItem);
                 }
-            let myfunc=myarray["3"];
+            let myfunc=myarray["2"];
             myfunc();
+
+            var questionOrder = [0,1,2,3]
+            var question1Placement = questionOrder[Math.floor(Math.random()*questionOrder.length)]
+            questionOrder.splice(questionOrder.indexOf(question1Placement),1)
+            var question2Placement = questionOrder[Math.floor(Math.random()*questionOrder.length)]
+            questionOrder.splice(questionOrder.indexOf(question2Placement),1)
+            var question3Placement = questionOrder[Math.floor(Math.random()*questionOrder.length)]
+            questionOrder.splice(questionOrder.indexOf(question3Placement),1)
+            var question4Placement = questionOrder[Math.floor(Math.random()*questionOrder.length)]
+            questionOrder.splice(questionOrder.indexOf(question4Placement),1)
+
+
 
             output.innerHTML = ""
             output.innerHTML += `
             <h2>${questionArray[index-1].question}</h2>
-            <button onclick="loadQuiz()">a:${questionArray[index-1].answers[0].o}</button>
-            <p>b:${questionArray[index-1].answers[1].o}</p>
-            <p>c:${questionArray[index-1].answers[2].o}</p>
-            <p>d:${questionArray[index-1].answers[3].o}</p>
+            <input type="button" onclick="answerFunction(${question1Placement})" value="a:${questionArray[index-1].answers[question1Placement].o}">
+            <input type="button" onclick="answerFunction(${question2Placement})" value="b:${questionArray[index-1].answers[question2Placement].o}">
+            <input type="button" onclick="answerFunction(${question3Placement})" value="c:${questionArray[index-1].answers[question3Placement].o}">
+            <input type="button" onclick="answerFunction(${question4Placement})" value="d:${questionArray[index-1].answers[question4Placement].o}">
             `;
+
+            
 
 
         };
+        localStorage.setItem("currentScore", 0)
+        localStorage.setItem("questionsAnswered", 0)
+        const answerFunction = (number) => {
+
+            switch (questionArray[0].answers[number].isCorrect){
+                case true:{
+                    var currentScore = parseInt(localStorage.getItem("currentScore"));
+                    localStorage.setItem("currentScore", ++currentScore)
+                    console.log(currentScore)
+                    output.innerHTML+=`<input type="button" onclick="loadQuiz()" value="Correct Answer! Click here to load the next quesiton">`
+
+                };
+                break;
+                case false:{
+
+                    output.innerHTML+=`<input type="button" onclick="loadQuiz()" value="Sorry, thats not correct! Click here to load the next quesiton">`
+                };
+                default : ;
+            }
+            };
+
 const questionArray=[];
 
 
