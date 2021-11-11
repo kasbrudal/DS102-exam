@@ -282,22 +282,26 @@
         localStorage.setItem("currentScore", 0)
         localStorage.setItem("questionsAnswered", 0)
         const answerFunction = (number) => {
+            var currentScore = parseInt(localStorage.getItem("currentScore"));
+            var questionsAnswered = parseInt(localStorage.getItem("questionsAnswered"));
 
             switch (questionArray[0].answers[number].isCorrect){
                 case true:{
-                    var currentScore = parseInt(localStorage.getItem("currentScore"));
                     localStorage.setItem("currentScore", ++currentScore)
+                    localStorage.setItem("questionsAnswered", ++questionsAnswered)
                     console.log(currentScore)
                     output.innerHTML+=`<input type="button" onclick="loadQuiz()" value="Correct Answer! Click here to load the next quesiton">`
 
                 };
                 break;
                 case false:{
+                    localStorage.setItem("questionsAnswered", ++currentScore)
 
                     output.innerHTML+=`<input type="button" onclick="loadQuiz()" value="Sorry, thats not correct! Click here to load the next quesiton">`
                 };
                 default : ;
             }
+            console.log(questionsAnswered)
             };
 
 const questionArray=[];
