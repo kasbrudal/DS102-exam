@@ -32,9 +32,12 @@
         <section class="quiz-Section">
             <div class="outputQuiz" id="outputInfo"></div>
             <div class="nextQuestion" id="nextQuestionBox"></div>
-            <p id="totalScore" class="totalScore"></p  >
-            <p id="highScore" class="highScore"></p>
-        </section>
+            <div id="totalScore"></div>
+            <div id="highScore">
+                <div id="pokeScore"></div>
+                <div id="footScore"></div>
+            </div>
+        </div>
         <footer class="footer">
             <div class="header-footer">Click one of the buttons to choose topic!  </div>
             <a href="main.html"><u><p style="color: rgb(255, 255, 255)";>Not read yet? Click here to find topics</p></u></a>
@@ -49,15 +52,20 @@
         let output = document.getElementById("outputInfo");
         let totalScore = document.getElementById("totalScore")
         let nextQuestion = document.getElementById("nextQuestionBox")
-
+        let pokeScore = document.getElementById("pokeScore")
+        let footScore = document.getElementById("footScore")
         
 
         const allPokemon = getAllPokemon();
         const allPlayers = getAllPlayers();
         var questions = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
-        var remainingQuestions = [0,1,2,3,4,5,6,7,8,9]
+        var remainingQuestions = 10;
         var positions = ["Goalkeeper", "Defender", "Midfield", "Central Attacking Midfield", "Right wing", "Left wing", "Striker"]
         var answerCheck = 0;
+        var quizTracker = 0;
+        localStorage.setItem("currentScore", 0)
+        localStorage.setItem("questionsAnswered", 0)
+        localStorage.setItem("quizScore", 0)
         
         let index=0;
         const loadQuiz = () => {
@@ -65,7 +73,7 @@
             questions.splice(questions.indexOf(randomNumber), 1)
             let myarray={"1": ()=>question1() ,"2":()=>question2(), "3":()=>question3(), 4:()=>question4(), "5":()=>question5(), };
                 const question1 = () => {
-                    remainingQuestions.pop();
+                    remainingQuestions--;
                     var questionArrayItem = {};
                     questionArrayItem["id"]=index++;
                     questionArrayItem["question"]=`How old is ${allPlayers[randomNumber].name} <img src="${allPlayers[randomNumber].playerImg}"> ?`;
@@ -93,7 +101,7 @@
                 }
 
                 const question2=()=>{
-                    remainingQuestions.pop();
+                    remainingQuestions--;
                     var questionArrayItem = {};
                     questionArrayItem["id"]=index++;
                     questionArrayItem["question"]=`Who is this? <img src="${allPlayers[randomNumber].playerImg}"> ?`;
@@ -138,7 +146,7 @@
                 }
 
                 const question3 = () => {
-                    remainingQuestions.pop();
+                    remainingQuestions--;
                     var questionArrayItem = {};
                     questionArrayItem["id"]=index++;
                     questionArrayItem["question"]=`What position does he play? <img src="${allPlayers[randomNumber].playerImg}"> ?`;
@@ -194,35 +202,21 @@
                 }
 
                 const question4 = () => {
-                    remainingQuestions.pop();
+                    remainingQuestions = remainingQuestions-1;
+                    console.log(remainingQuestions)
                     var questionArrayItem = {};
                     questionArrayItem["id"]=index++;
-                    questionArrayItem["question"]=`Who is the?`;
-                    let answer4 = allPlayers[randomNumber].age;
-                    let answer1 = Math.floor(Math.random() * 20)+20;
-                    if (answer1 == answer4){
-                        answer1++
-                        console.log("1 lik")
-                    };
-                    let answer2 = Math.floor(Math.random() * 20)+20;
-                    for(let valuecheck = 0; valuecheck < 1; valuecheck++){
-                    if(answer2 == answer4 || answer2 == answer1){
-                        answer2++
-                        console.log("2 lik")
-                    }}
-                    let answer3 = Math.floor(Math.random() * 20)+20;
-                    for(let valuecheck = 0; valuecheck < 2; valuecheck++){
-                    if(answer3 == answer4 || answer3 == answer1 || answer3 == answer2){
-                        answer3++
-                        console.log("3 lik")
-                    }}
-                    
+                    questionArrayItem["question"]=`Who is the best footballer in the world?`;
+                    answer1 = "Christiano Ronaldo";
+                    answer2 = "Erling Haaland";
+                    answer3 = "Neymar";
+                    answer4 = "Lionel Messi";
                     questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
                     questionArray.push(questionArrayItem);
                 }
 
                 const question5 = () => {
-                    remainingQuestions.pop();
+                    remainingQuestions--;
                     var questionArrayItem = {};
                     questionArrayItem["id"]=index++;
                     questionArrayItem["question"]=`How old is ${allPlayers[randomNumber].name} <img src="${allPlayers[randomNumber].playerImg}"> ?`;
@@ -248,7 +242,7 @@
                     questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
                     questionArray.push(questionArrayItem);
                 }
-            let myfunc=myarray["2"];
+            let myfunc=myarray["4"];
             myfunc();
 
             var questionOrder = [0,1,2,3]
@@ -279,34 +273,59 @@
 
 
         };
-        localStorage.setItem("currentScore", 0)
-        localStorage.setItem("questionsAnswered", 0)
+        
+
         const answerFunction = (number) => {
             
             var currentScore = parseInt(localStorage.getItem("currentScore"));
             var questionsAnswered = parseInt(localStorage.getItem("questionsAnswered"));
-
-            switch (questionArray[0].answers[number].isCorrect){
-                case true:
-                case answerCheck = 0:{
-                    localStorage.setItem("currentScore", ++currentScore)
-                    localStorage.setItem("questionsAnswered", ++questionsAnswered)
-                    console.log(currentScore)
-                    nextQuestion.innerHTML=`<input type="button" style="background-color: #068806" class="nextQuestion-Button" onclick="loadQuiz()" value="Correct Answer! Click here to load the next quesiton">`
-                    answerCheck = 1;
-
-                };
-                break;
-                case false:
-                case answerCheck = 0:{
-                    localStorage.setItem("questionsAnswered", ++currentScore)
-                    nextQuestion.innerHTML=`<input type="button" style="background-color: #d41e1e" class="nextQuestion-Button" onclick="loadQuiz()" value="Sorry, thats not correct! Click here to load the next quesiton">`
-                    answerCheck = 1;
-                };
-                default :console.log("!", answerCheck) ;
-            }
-            console.log(questionsAnswered, currentScore)
+            var quizScore = parseInt(localStorage.getItem("quizScore"));
+            
+            
+            if (remainingQuestions == 0){
+                quizTracker = 1;
             };
+            switch (quizTracker){
+                
+
+                case  0:{
+                    switch (questionArray[0].answers[number].isCorrect){
+                    
+                    case true: 
+                    case answerCheck = 0:{
+                        localStorage.setItem("currentScore", ++currentScore)
+                        localStorage.setItem("questionsAnswered", ++questionsAnswered)
+                        console.log(currentScore)
+                        nextQuestion.innerHTML=`<input type="button" style="background-color: #068806" onclick="loadQuiz()" value="Correct Answer! Click here to load the next quesiton">`
+                        answerCheck = 1;
+
+                    };
+                    break;
+                    case false:
+                    case answerCheck = 0:{
+                        localStorage.setItem("questionsAnswered", ++questionsAnswered)
+                        nextQuestion.innerHTML=`<input type="button" style="background-color: #d41e1e"  onclick="loadQuiz()" value="Sorry, thats not correct! Click here to load the next quesiton">`
+                        answerCheck = 1;
+                    };
+                    default :console.log("!", answerCheck) ;
+            }}
+            break;
+            case  1:{
+                    localStorage.setItem("quizScore", currentScore)
+                    console.log(localStorage.getItem("quizScore"));
+                    console.log("FERDI")
+                    nextQuestion.innerHTML=`<input type="button" onclick="loadQuiz()" value="Quiz complete! Click here to retry the quiz.">`
+                }
+                
+
+
+                default :console.log("switch ferdig");
+            };
+            
+            console.log(remainingQuestions, currentScore)
+            };
+            
+            
 
 const questionArray=[];
 
