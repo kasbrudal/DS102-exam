@@ -29,8 +29,8 @@
             <button id="football-btn" class="fotball">Fotball</button>
         </section>
 
-        </div>
-            <div class="output" id="outputInfo"></div>
+        <section class="quiz-Section">
+            <div class="outputQuiz" id="outputInfo"></div>
             <div class="nextQuestion" id="nextQuestionBox"></div>
             <div id="totalScore"></div>
             <div id="highScore">
@@ -40,7 +40,7 @@
         </div>
         <footer class="footer">
             <div class="header-footer">Click one of the buttons to choose topic!  </div>
-            <a href="main.html"><u><p style="color: rgb(255, 255, 255)";>Not read? Click here to find topics</p></u></a>
+            <a href="main.html"><u><p style="color: rgb(255, 255, 255)";>Not read yet? Click here to find topics</p></u></a>
         </footer>
 
         <script src="scripts/pokeArray.js"></script>
@@ -260,11 +260,13 @@
             nextQuestion.innerHTML = ""
             output.innerHTML = ""
             output.innerHTML += `
-            <h2>${questionArray[index-1].question}</h2>
-            <input type="button" class="answerButton" onclick="answerFunction(${question1Placement})" value="a:${questionArray[index-1].answers[question1Placement].o}">
-            <input type="button" class="answerButton" onclick="answerFunction(${question2Placement})" value="b:${questionArray[index-1].answers[question2Placement].o}">
-            <input type="button" class="answerButton" onclick="answerFunction(${question3Placement})" value="c:${questionArray[index-1].answers[question3Placement].o}">
-            <input type="button" class="answerButton" onclick="answerFunction(${question4Placement})" value="d:${questionArray[index-1].answers[question4Placement].o}">
+            <h1 class="quiz-Question">${questionArray[index-1].question}</h1>
+            <div class="quiz-buttons">
+                <input type="button" class="answerButton" onclick="answerFunction(${question1Placement})" value="a:${questionArray[index-1].answers[question1Placement].o}">
+                <input type="button" class="answerButton" onclick="answerFunction(${question2Placement})" value="b:${questionArray[index-1].answers[question2Placement].o}">
+                <input type="button" class="answerButton" onclick="answerFunction(${question3Placement})" value="c:${questionArray[index-1].answers[question3Placement].o}">
+                <input type="button" class="answerButton" onclick="answerFunction(${question4Placement})" value="d:${questionArray[index-1].answers[question4Placement].o}">
+            </div>
             `;
 
             
@@ -294,7 +296,7 @@
                         localStorage.setItem("currentScore", ++currentScore)
                         localStorage.setItem("questionsAnswered", ++questionsAnswered)
                         console.log(currentScore)
-                        nextQuestion.innerHTML=`<input type="button" onclick="loadQuiz()" value="Correct Answer! Click here to load the next quesiton">`
+                        nextQuestion.innerHTML=`<input type="button" style="background-color: #068806" onclick="loadQuiz()" value="Correct Answer! Click here to load the next quesiton">`
                         answerCheck = 1;
 
                     };
@@ -302,7 +304,7 @@
                     case false:
                     case answerCheck = 0:{
                         localStorage.setItem("questionsAnswered", ++questionsAnswered)
-                        nextQuestion.innerHTML=`<input type="button" onclick="loadQuiz()" value="Sorry, thats not correct! Click here to load the next quesiton">`
+                        nextQuestion.innerHTML=`<input type="button" style="background-color: #d41e1e"  onclick="loadQuiz()" value="Sorry, thats not correct! Click here to load the next quesiton">`
                         answerCheck = 1;
                     };
                     default :console.log("!", answerCheck) ;
@@ -322,6 +324,8 @@
             
             console.log(remainingQuestions, currentScore)
             };
+            
+            
 
 const questionArray=[];
 
