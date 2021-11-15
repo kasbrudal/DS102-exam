@@ -69,7 +69,7 @@
         localStorage.setItem("quizScore", 0)
         
         let index=0;
-        const loadQuiz = () => {
+        const loadFootballQuiz = () => {
             var randomNumber = questions[Math.floor(Math.random()*questions.length)]
             questions.splice(questions.indexOf(randomNumber), 1)
             let myarray={"1": ()=>question1() ,"2":()=>question2(), "3":()=>question3(), 4:()=>question4(), "5":()=>question5(), };
@@ -243,7 +243,7 @@
                     questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
                     questionArray.push(questionArrayItem);
                 }
-            let myfunc=myarray["4"];
+            let myfunc=myarray["2"];
             myfunc();
 
             var questionOrder = [0,1,2,3]
@@ -274,6 +274,187 @@
 
 
         };
+        const loadPokemonQuiz = () => {
+            var randomNumber = questions[Math.floor(Math.random()*questions.length)]
+            questions.splice(questions.indexOf(randomNumber), 1)
+            let myarray={"1": ()=>question1() ,"2":()=>question2(), "3":()=>question3(), 4:()=>question4(), "5":()=>question5(), };
+                const question1 = () => {
+                    remainingQuestions--;
+                    var questionArrayItem = {};
+                    questionArrayItem["id"]=index++;
+                    questionArrayItem["question"]=`Whos that Pokemon? <img src="${allPokemon[randomNumber].image}"> `;
+                    let answer4 = allPokemon[randomNumber].name;
+                    var random1 = [Math.floor(Math.random() * 20)];
+                    
+                        if (random1 == randomNumber){
+                            random1++
+                            console.log("1 lik")
+                        };
+                        if(random1 >= 20){
+                            random1=0;
+                        }
+                    let answer1 = allPokemon[random1].name;
+                    var random2 = [Math.floor(Math.random() * 20)];
+                    
+                    for(let valuecheck = 0; valuecheck < 1; valuecheck++){
+                        if(random2 == randomNumber || random2 == random1){
+                            random2++
+                            console.log("2 lik")
+                        }
+                        if(random2 >= 20){
+                                random2=0;
+                        }
+                };
+                    let answer2 = allPokemon[random2].name;
+                    var random3 = [Math.floor(Math.random() * 20)];
+                    
+                    for(let valuecheck = 0; valuecheck < 2; valuecheck++){
+                        if(random3 == randomNumber || random3 == random1 || random3 == random2){
+                            random3++
+                            console.log("3 lik")
+                        }
+                        if(random3 >= 20){
+                            random3=0;
+                        }
+                };
+                    let answer3 = allPokemon[random3].name;
+                    questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
+                    questionArray.push(questionArrayItem);
+                }
+
+                const question2=()=>{
+                    remainingQuestions--;
+                    var questionArrayItem = {};
+                    questionArrayItem["id"]=index++;
+                    questionArrayItem["question"]=`What type is this pokemon? <img src="${allPokemon[randomNumber].image}"> ?`;
+                    let answer4 = allPokemon[randomNumber].type1 ;
+                    var random1 = [Math.floor(Math.random() * 20)];
+                    
+                        if (random1 == randomNumber){
+                            random1++
+                            console.log("1 lik")
+                        };
+                        if(random1 >= 20){
+                            random1=0;
+                        }
+                    let answer1 = allPokemon[random1].type1;
+                    var random2 = [Math.floor(Math.random() * 20)];
+                    
+                    for(let valuecheck = 0; valuecheck < 1; valuecheck++){
+                        if(random2 == randomNumber || random2 == random1){
+                            random2++
+                            console.log("2 lik")
+                        }
+                        if(random2 >= 20){
+                                random2=0;
+                        }
+                };
+                    let answer2 = allPokemon[random2].type1;
+                    var random3 = [Math.floor(Math.random() * 20)];
+                    
+                    for(let valuecheck = 0; valuecheck < 2; valuecheck++){
+                        if(random3 == randomNumber || random3 == random1 || random3 == random2){
+                            random3++
+                            console.log("3 lik")
+                        }
+                        if(random3 >= 20){
+                            random3=0;
+                        }
+                };
+                    let answer3 = allPokemon[random3].type1;
+                    
+                    questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
+                    questionArray.push(questionArrayItem);
+                }
+
+                const question3 = () => {
+                    remainingQuestions = remainingQuestions-1;
+                    console.log(remainingQuestions)
+                    var questionArrayItem = {};
+                    questionArrayItem["id"]=index++;
+                    questionArrayItem["question"]=`Which pokemon is most popular?` ;
+                    answer1 = "Charizard";
+                    answer2 = "Blastoise";
+                    answer3 = "Venusaur";
+                    answer4 = "Squirtle";
+                    questionArrayItem["answers"]=[{o:answer1, isCorrect:true}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:false}];
+                    questionArray.push(questionArrayItem);
+                }
+                const question4 = () => {
+                    remainingQuestions--;
+                    var questionArrayItem = {};
+                    questionArrayItem["id"]=index++;
+                    questionArrayItem["question"]=`What info fits to this pokemon ${allPokemon[randomNumber].name}? <img src="${allPokemon[randomNumber].image}"> `;
+                    let answer4 = allPokemon[randomNumber].pokeInfo;
+                    var random1 = [Math.floor(Math.random() * 20)];
+                    
+                        if (random1 == randomNumber){
+                            random1++
+                            console.log("1 lik")
+                        };
+                        if(random1 >= 20){
+                            random1=0;
+                        }
+                    let answer1 = allPokemon[random1].pokeInfo;
+                    var random2 = [Math.floor(Math.random() * 20)];
+                    
+                    for(let valuecheck = 0; valuecheck < 1; valuecheck++){
+                        if(random2 == randomNumber || random2 == random1){
+                            random2++
+                            console.log("2 lik")
+                        }
+                        if(random2 >= 20){
+                                random2=0;
+                        }
+                };
+                    let answer2 = allPokemon[random2].pokeInfo;
+                    var random3 = [Math.floor(Math.random() * 20)];
+                    
+                    for(let valuecheck = 0; valuecheck < 2; valuecheck++){
+                        if(random3 == randomNumber || random3 == random1 || random3 == random2){
+                            random3++
+                            console.log("3 lik")
+                        }
+                        if(random3 >= 20){
+                            random3=0;
+                        }
+                };
+                    let answer3 = allPokemon[random3].pokeInfo;
+                    questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
+                    questionArray.push(questionArrayItem);
+                }
+                
+            let myfunc=myarray["4"];
+            myfunc();
+
+            var questionOrder = [0,1,2,3]
+            var question1Placement = questionOrder[Math.floor(Math.random()*questionOrder.length)]
+            questionOrder.splice(questionOrder.indexOf(question1Placement),1)
+            var question2Placement = questionOrder[Math.floor(Math.random()*questionOrder.length)]
+            questionOrder.splice(questionOrder.indexOf(question2Placement),1)
+            var question3Placement = questionOrder[Math.floor(Math.random()*questionOrder.length)]
+            questionOrder.splice(questionOrder.indexOf(question3Placement),1)
+            var question4Placement = questionOrder[Math.floor(Math.random()*questionOrder.length)]
+            questionOrder.splice(questionOrder.indexOf(question4Placement),1)
+            answerCheck = 0;
+
+
+            nextQuestion.innerHTML = ""
+            output.innerHTML = ""
+            output.innerHTML += `
+            <h1 class="quiz-Question">${questionArray[index-1].question}</h1>
+            <div class="quiz-buttons">
+                <div class="answerButton" onclick="answerFunction(${question1Placement})" value="a:">${questionArray[index-1].answers[question1Placement].o}</div>
+                <div class="answerButton" onclick="answerFunction(${question2Placement})" value="b:">${questionArray[index-1].answers[question2Placement].o}</div>
+                <div class="answerButton" onclick="answerFunction(${question3Placement})" value="c:">${questionArray[index-1].answers[question3Placement].o}</div>
+                <div class="answerButton" onclick="answerFunction(${question4Placement})" value="d:">${questionArray[index-1].answers[question4Placement].o}</div>
+            </div>
+            `;
+
+            
+
+
+        };
         
 
         const answerFunction = (number) => {
@@ -297,7 +478,7 @@
                         localStorage.setItem("currentScore", ++currentScore)
                         localStorage.setItem("questionsAnswered", ++questionsAnswered)
                         console.log(currentScore)
-                        nextQuestion.innerHTML=`<input type="button" style="background-color: #068806" onclick="loadQuiz()" value="Correct Answer! Click here to load the next quesiton">`
+                        nextQuestion.innerHTML=`<input type="button" class="nextQuestion-Button" style="background-color: #068806" onclick="loadFootballQuiz()" value="Correct Answer! Click here to load the next quesiton">`
                         answerCheck = 1;
 
                     };
@@ -305,7 +486,7 @@
                     case false:
                     case answerCheck = 0:{
                         localStorage.setItem("questionsAnswered", ++questionsAnswered)
-                        nextQuestion.innerHTML=`<input type="button" style="background-color: #d41e1e"  onclick="loadQuiz()" value="Sorry, thats not correct! Click here to load the next quesiton">`
+                        nextQuestion.innerHTML=`<input type="button" class="nextQuestion-Button" style="background-color: #d41e1e"  onclick="loadFootballQuiz()" value="Sorry, thats not correct! Click here to load the next quesiton">`
                         answerCheck = 1;
                     };
                     default :console.log("!", answerCheck) ;
@@ -315,7 +496,7 @@
                     localStorage.setItem("quizScore", currentScore)
                     console.log(localStorage.getItem("quizScore"));
                     console.log("FERDI")
-                    nextQuestion.innerHTML=`<input type="button" onclick="loadQuiz()" value="Quiz complete! Click here to retry the quiz.">`
+                    nextQuestion.innerHTML=`<input type="button" onclick="loadFootballQuiz()" value="Quiz complete! Click here to retry the quiz.">`
                 }
                 
 
@@ -330,20 +511,9 @@
 
 const questionArray=[];
 
+        showPlayerQuizBtn.addEventListener("click", loadFootballQuiz)
+        showPokeQuizBtn.addEventListener("click", loadPokemonQuiz)
 
-
-
-
-
-
-
-
-
-
-        
-
-
-        showPokeQuizBtn.addEventListener("click", loadQuiz)
         //showPlayerQuizBtn.addEventListener("click", createFilterButtons2);
 
         </script>
