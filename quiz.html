@@ -66,6 +66,7 @@
         localStorage.setItem("currentScore", 0)
         localStorage.setItem("questionsAnswered", 0)
         localStorage.setItem("quizScore", 0)
+        let functionChooser = 4;
         
         let index=0;
         const loadQuiz = () => {
@@ -98,6 +99,7 @@
                     
                     questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
                     questionArray.push(questionArrayItem);
+                    functionChooser = 2;
                 }
 
                 const question2=()=>{
@@ -143,13 +145,14 @@
                     
                     questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
                     questionArray.push(questionArrayItem);
+                    functionChooser = 3;
                 }
 
                 const question3 = () => {
                     remainingQuestions--;
                     var questionArrayItem = {};
                     questionArrayItem["id"]=index++;
-                    questionArrayItem["question"]=`What position does he play? <img src="${allPlayers[randomNumber].playerImg}"> ?`;
+                    questionArrayItem["question"]=`Which position does ${allPlayers[randomNumber].name} play? <img src="${allPlayers[randomNumber].playerImg}"> ?`;
                     let answer4 = allPlayers[randomNumber].position;
                     var random1 = [Math.floor(Math.random() * 7)];
                     var check1 = positions[random1]
@@ -199,6 +202,7 @@
                     
                     questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
                     questionArray.push(questionArrayItem);
+                    functionChooser = 1;
                 }
 
                 const question4 = () => {
@@ -213,6 +217,7 @@
                     answer4 = "Lionel Messi";
                     questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
                     questionArray.push(questionArrayItem);
+                    functionChooser = 1;
                 }
 
                 const question5 = () => {
@@ -242,7 +247,7 @@
                     questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
                     questionArray.push(questionArrayItem);
                 }
-            let myfunc=myarray["4"];
+            let myfunc=myarray[functionChooser];
             myfunc();
 
             var questionOrder = [0,1,2,3]
@@ -315,6 +320,7 @@
                     console.log(localStorage.getItem("quizScore"));
                     console.log("FERDI")
                     nextQuestion.innerHTML=`<input type="button" onclick="loadQuiz()" value="Quiz complete! Click here to retry the quiz.">`
+                    footScore.innerHTML=``
                 }
                 
 
