@@ -73,7 +73,7 @@ var fotbArray = [
         name:"Neymar",
         nation:"Brazil",
         ranking:8,
-        position:"Striker",
+        position:"Left wing",
         team:"PSG",
         age: 29,
         playerInfo:"Neymar is one of the greatest ballers we have seen this century. Neymar have won the CL with Barcelona, but have yet to win with PSG. Thats why he is ranked no.8 he has yet to win the most wanted trophy in football with PSG. Many people say that he have lost his skills since leaving Barcelona.",

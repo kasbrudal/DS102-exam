@@ -11,29 +11,29 @@
     <nav class="nav">
         <a href="main.html" class="active">
             <div class="nav-head-info">
-                <img src="images/info.png" alt="information logo" height="100px">
+                <img src="images/info.png" alt="information logo" class="nav-logo">
                 <h1>Information</h1>
             </div>
         </a>
         <a href="quiz.html">
             <div class="nav-head-quiz">
-                <img src="images/question.png" alt="questionmark logo" height="100px">
+                <img src="images/question.png" alt="questionmark logo" class="nav-logo">
                 <h2>Quiz</h2>
             </div>
         </a>
     </nav>
         <section class="informationSection"><h2>Choose category you want to learn about before the quiz</h2></section>
-        <section class="select-section">
+        <div class="select-section">
             <button id="pokemon-btn" class="pokemon">Pokemon</button>
             <button id="football-btn" class="fotball">Fotball</button>
-        </section>
+        </div>
         <section class="filterSection" id="filterSection">
 
         </section>
-        <div class="output" id="outputInfo"></div>
+        <main class="output" id="outputInfo"></main>
         <footer class="footer">
             <div class="header-footer">Click one of the buttons to choose topic</div>
-            <a href="quiz.html"><u><p style="color: rgb(255, 255, 255)";>Done reading? Click here to test yourself</p></u></a>
+            <a href="quiz.html"><u style="color: rgb(255, 255, 255)"> Done reading? Click here to test yourself</u></a>
         </footer>
     <script src="scripts/pokeArray.js"></script>
     <script src="scripts/fotbArray.js"></script>

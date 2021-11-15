@@ -10,6 +10,9 @@ a{
     text-decoration: none;
     color: black;
 }
+.nav-logo{
+    height: 100px;
+}
 .active{
     border: 1px solid black;
     border-radius: 10px;    
@@ -303,7 +306,9 @@ a{
     font-size: 19px;
 }
 
-
+.questionImg{
+    width: 350px;
+}
 .quiz-buttons{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -315,6 +320,9 @@ a{
 }
 }
 @media only screen and (max-width: 426px) {
+    .questionImg{
+        width: 200px;
+    }
     .header-footer{
         font-size: 17px;
     }
@@ -333,7 +341,7 @@ a{
     .quiz-Question{
         display: flex;
         flex-direction: column;
-        border: 5px solid black;
+        border: 5px solid #8a791b;
 
         
     }

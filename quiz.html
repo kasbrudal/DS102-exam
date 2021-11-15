@@ -11,13 +11,13 @@
     <nav class="nav">
         <a href="main.html">
             <div class="nav-head-info">
-                <img src="images/info.png" alt="information logo" height="100px">
+                <img src="images/info.png" alt="information logo" class="nav-logo">
                 <h1>Informasjon</h1>
             </div>
         </a>
         <a href="quiz.html" class="active">
             <div class="nav-head-quiz">
-                <img src="images/question.png" alt="questionmark logo" height="100px">
+                <img src="images/question.png" alt="questionmark logo" class="nav-logo">
                 <h2>Quiz</h2>
             </div>
         </a>
@@ -25,10 +25,10 @@
 
     <section class="informationSection"><h2>Choose topic for the quiz</h2></section>
        
-    <section class="select-section">
+    <div class="select-section">
          <button id="pokemon-btn" class="pokemon">Pokemon</button>
          <button id="football-btn" class="fotball">Fotball</button>
-    </section>
+    </div>
 
         <section class="quiz-Section">
             <div class="outputQuiz" id="outputInfo"></div>
@@ -41,7 +41,7 @@
         </section>
         <footer class="footer">
             <div class="header-footer">Click one of the buttons to choose topic!  </div>
-            <a href="main.html"><u><p style="color: rgb(255, 255, 255)";>Not read yet? Click here to find topics</p></u></a>
+            <a href="main.html"><u style="color: rgb(255, 255, 255)"> Not read yet? Click here to find topics</u></a>
         </footer>
 
         <script src="scripts/pokeArray.js"></script>
@@ -78,7 +78,7 @@
                     remainingQuestions--;
                     var questionArrayItem = {};
                     questionArrayItem["id"]=index++;
-                    questionArrayItem["question"]=`How old is ${allPlayers[randomNumber].name} <img src="${allPlayers[randomNumber].playerImg}"> ?`;
+                    questionArrayItem["question"]=`How old is ${allPlayers[randomNumber].name}? <img src="${allPlayers[randomNumber].playerImg}" class="questionImg"> `;
                     let answer4 = allPlayers[randomNumber].age;
                     let answer1 = Math.floor(Math.random() * 20)+20;
                     if (answer1 == answer4){
@@ -107,7 +107,7 @@
                     remainingQuestions--;
                     var questionArrayItem = {};
                     questionArrayItem["id"]=index++;
-                    questionArrayItem["question"]=`Who is this? <img src="${allPlayers[randomNumber].playerImg}"> ?`;
+                    questionArrayItem["question"]=`Who is this? <img src="${allPlayers[randomNumber].playerImg}" class="questionImg"> `;
                     let answer4 = allPlayers[randomNumber].name;
                     var random1 = [Math.floor(Math.random() * 20)];
                     
@@ -153,7 +153,7 @@
                     remainingQuestions--;
                     var questionArrayItem = {};
                     questionArrayItem["id"]=index++;
-                    questionArrayItem["question"]=`Which position does ${allPlayers[randomNumber].name} play? <img src="${allPlayers[randomNumber].playerImg}"> ?`;
+                    questionArrayItem["question"]=`Which position does ${allPlayers[randomNumber].name} play? <img src="${allPlayers[randomNumber].playerImg}" class="questionImg"> `;
                     let answer4 = allPlayers[randomNumber].position;
                     var random1 = [Math.floor(Math.random() * 7)];
                     var check1 = positions[random1]
@@ -211,7 +211,7 @@
                     console.log(remainingQuestions)
                     var questionArrayItem = {};
                     questionArrayItem["id"]=index++;
-                    questionArrayItem["question"]=`Who is the best footballer in the world?`;
+                    questionArrayItem["question"]=`Who is the best football player in the world? <img src="/images/mrn.png" class="questionImg">`;
                     answer1 = "Christiano Ronaldo";
                     answer2 = "Erling Haaland";
                     answer3 = "Neymar";
@@ -225,7 +225,7 @@
                     remainingQuestions--;
                     var questionArrayItem = {};
                     questionArrayItem["id"]=index++;
-                    questionArrayItem["question"]=`How old is ${allPlayers[randomNumber].name} <img src="${allPlayers[randomNumber].playerImg}"> ?`;
+                    questionArrayItem["question"]=`How old is? ${allPlayers[randomNumber].name} <img src="${allPlayers[randomNumber].playerImg}" class="questionImg"> `;
                     let answer4 = allPlayers[randomNumber].age;
                     let answer1 = Math.floor(Math.random() * 20)+20;
                     if (answer1 == answer4){
@@ -287,7 +287,7 @@
                     remainingQuestions--;
                     var questionArrayItem = {};
                     questionArrayItem["id"]=index++;
-                    questionArrayItem["question"]=`Whos that Pokemon? <img src="${allPokemon[randomNumber].image}"> `;
+                    questionArrayItem["question"]=`Whos that Pokemon? <img src="${allPokemon[randomNumber].image}" class="questionImg"> `;
                     let answer4 = allPokemon[randomNumber].name;
                     var random1 = [Math.floor(Math.random() * 20)];
                     
@@ -325,13 +325,14 @@
                     let answer3 = allPokemon[random3].name;
                     questionArrayItem["answers"]=[{o:answer1, isCorrect:false}, {o:answer2, isCorrect:false}, {o:answer3, isCorrect:false}, {o:answer4, isCorrect:true}];
                     questionArray.push(questionArrayItem);
+                    
                 }
 
                 const question2=()=>{
                     remainingQuestions--;
                     var questionArrayItem = {};
                     questionArrayItem["id"]=index++;
-                    questionArrayItem["question"]=`What type is this pokemon? <img src="${allPokemon[randomNumber].image}"> ?`;
+                    questionArrayItem["question"]=`What type is this pokemon? <img src="${allPokemon[randomNumber].image}" class="questionImg"> `;
                     let answer4 = allPokemon[randomNumber].type1 ;
                     var random1 = [Math.floor(Math.random() * 20)];
                     
@@ -377,7 +378,7 @@
                     console.log(remainingQuestions)
                     var questionArrayItem = {};
                     questionArrayItem["id"]=index++;
-                    questionArrayItem["question"]=`Which pokemon is most popular?` ;
+                    questionArrayItem["question"]=`Which pokemon is most popular? <img src="/images/starters.png" class="questionImg">` ;
                     answer1 = "Charizard";
                     answer2 = "Blastoise";
                     answer3 = "Venusaur";
@@ -389,7 +390,7 @@
                     remainingQuestions--;
                     var questionArrayItem = {};
                     questionArrayItem["id"]=index++;
-                    questionArrayItem["question"]=`What info fits to this pokemon ${allPokemon[randomNumber].name}? <img src="${allPokemon[randomNumber].image}"> `;
+                    questionArrayItem["question"]=`What description fits to this pokemon, ${allPokemon[randomNumber].name}? <img src="${allPokemon[randomNumber].image}" class="questionImg"> `;
                     let answer4 = allPokemon[randomNumber].pokeInfo;
                     var random1 = [Math.floor(Math.random() * 20)];
                     
@@ -429,7 +430,7 @@
                     questionArray.push(questionArrayItem);
                 }
                 
-            let myfunc=myarray["4"];
+            let myfunc=myarray["3"];
             myfunc();
 
             var questionOrder = [0,1,2,3]
@@ -488,7 +489,7 @@
                     case false:
                     case answerCheck = 0:{
                         questionsAnswered++
-                        nextQuestion.innerHTML=`<input type="button" style="background-color: #d41e1e"  onclick="loadQuiz()" value="Sorry, thats not correct! Click here to load the next quesiton">`
+                        nextQuestion.innerHTML=`<input type="button" class="nextQuestion-Button" style="background-color: #d41e1e"  onclick="loadFootballQuiz()" value="Sorry, thats not correct! Click here to load the next quesiton">`
                         answerCheck = 1;
                     };
                     default :console.log("!", answerCheck) ;
@@ -502,7 +503,7 @@
                     localStorage.setItem("counter", counter)
                     
                     console.log("FERDI", currentScore)
-                    nextQuestion.innerHTML=`<input type="button" onclick="loadQuiz()" value="Quiz complete! Click here to retry the quiz.">`
+                    nextQuestion.innerHTML=`<input type="button" class="nextQuestion-Button" style="background-color: #8a791b" onclick="loadQuiz()" value="Quiz complete! Click here to retry the quiz.">`
                     var scores = []
                     var sortedScores = []
                     
