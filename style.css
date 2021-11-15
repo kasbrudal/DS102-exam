@@ -17,7 +17,7 @@ a{
 .nav{
     display: flex;
     justify-content: space-around;
-    background-color: #e62020;
+    background-color: #39b5d4;
     align-items: center;
 }
 .nav-head-info{
@@ -62,13 +62,13 @@ a{
 }
 .pokemon, .fotball{
     font-size: 20px;
-    border: 1px dotted black;
-    background-color: #2342f1;
+    border: 1px dotted white;
+    background-color: #273aa8;
     border-radius: 10px;
     padding: 20px 40px;
     margin: 12px;
     text-align: center;
-    color: #fff;
+    color: rgb(236, 222, 222);
     cursor: pointer;
     box-shadow: 0 9px gray;
   
@@ -157,13 +157,17 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #e62020;
+    background: #012847;
+    height: 300px;
     margin-bottom: 0;
     flex-shrink: 0;
+    color: white;
+    
 }
 .header-footer{
     font-weight: bold;
     font-size: 24px;
+    color: white;
 }
 
 @media only screen and (max-width: 970px) {
