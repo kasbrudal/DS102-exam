@@ -1,14 +1,14 @@
 var pokeArray = [
     {
-        name:"Bulbasaur",dexNumber:1, type1:"Grass", type2:"Poison", image:"images/001.png", color1:"rgb(77, 255, 100)", color2:"#900bdd",
+        name:"Bulbasaur",dexNumber:1, type1:"Grass", type2:"Poison", image:"images/001.png", color1:"rgb(77, 255, 100)", color2:"#ae59df",
         pokeInfo:"There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger"
     },
     {
-    name:"Ivysaur", dexNumber:2, type1:"Grass", type2:"Poison", image:"images/002.png", color1:"rgb(77, 255, 100)", color2:"#900bdd",
+    name:"Ivysaur", dexNumber:2, type1:"Grass", type2:"Poison", image:"images/002.png", color1:"rgb(77, 255, 100)", color2:"#ae59df",
     pokeInfo:"When the bulb on its back grows large, it appears to lose the ability to stand on its hind legs."
     },
     {
-    name:"Venusaur", dexNumber:3, type1:"Grass", type2:"Poison", image:"images/003.png", color1:"rgb(77, 255, 100)", color2:"#900bdd",
+    name:"Venusaur", dexNumber:3, type1:"Grass", type2:"Poison", image:"images/003.png", color1:"rgb(77, 255, 100)", color2:"#ae59df",
     pokeInfo:"Its plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight."
     },
     {
@@ -36,27 +36,27 @@ var pokeArray = [
     pokeInfo:"It crushes its foe under its heavy body to cause fainting. In a pinch, it will withdraw inside its shell."
     },
     {
-    name:"Caterpie", dexNumber:10, type1:"Bug", type2:"", image:"images/010.png", color1:"rgb(12, 122, 12)",
+    name:"Caterpie", dexNumber:10, type1:"Bug", type2:"", image:"images/010.png", color1:"#3fb13f",
     pokeInfo:"For protection, it releases a horrible stench from the antenna on its head to drive away enemies."
     },
     {
-    name:"Metapod", dexNumber:11, type1:"Bug", type2:"", image:"images/011.png", color1:"rgb(12, 122, 12)",
+    name:"Metapod", dexNumber:11, type1:"Bug", type2:"", image:"images/011.png", color1:"#3fb13f",
     pokeInfo:"It is waiting for the moment to evolve. At this stage, it can only harden, so it remains motionless to avoid attack."
     },
     {
-    name:"ButterFree", dexNumber:12, type1:"Bug", type2:"Flying", image:"images/012.png", color1:"rgb(12, 122, 12)", color2:"linear-gradient(0deg, rgba(165,163,190,1) 49%, rgba(253,253,255,1) 53%, rgba(0,212,255,1) 100%);",
+    name:"ButterFree", dexNumber:12, type1:"Bug", type2:"Flying", image:"images/012.png", color1:"#3fb13f", color2:"linear-gradient(0deg, rgba(165,163,190,1) 49%, rgba(253,253,255,1) 53%, rgba(0,212,255,1) 100%);",
     pokeInfo:"In battle, it flaps its wings at great speed to release highly toxic dust into the air."
     },
     {
-    name:"Weedle", dexNumber:13, type1:"Bug", type2:"Poison", image:"images/013.png", color1:"rgb(12, 122, 12)", color2:"#900bdd",
+    name:"Weedle", dexNumber:13, type1:"Bug", type2:"Poison", image:"images/013.png", color1:"#3fb13f", color2:"#ae59df",
     pokeInfo:"Beware of the sharp stinger on its head. It hides in grass and bushes where it eats leaves."
     },
     {
-    name:"Kakuna", dexNumber:14, type1:"Bug", type2:"Poison", image:"images/014.png", color1:"rgb(12, 122, 12)", color2:"#900bdd",
+    name:"Kakuna", dexNumber:14, type1:"Bug", type2:"Poison", image:"images/014.png", color1:"#3fb13f", color2:"#ae59df",
     pokeInfo:"Able to move only slightly. When endangered, it may stick out its stinger and poison its enemy."
     },
     {
-    name:"Beedrill", dexNumber:15, type1:"Bug", type2:"Poison", image:"images/015.png", color1:"rgb(12, 122, 12)", color2:"#900bdd",
+    name:"Beedrill", dexNumber:15, type1:"Bug", type2:"Poison", image:"images/015.png", color1:"#3fb13f", color2:"#ae59df",
     pokeInfo:"It has three poisonous stingers on its forelegs and its tail. They are used to jab its enemy repeatedly."
     },
     {
