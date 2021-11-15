@@ -64,10 +64,10 @@
         var positions = ["Goalkeeper", "Defender", "Midfield", "Central Attacking Midfield", "Right wing", "Left wing", "Striker"]
         var answerCheck = 0;
         var quizTracker = 0;
-        localStorage.setItem("currentScore", 0)
-        localStorage.setItem("questionsAnswered", 0)
-        localStorage.setItem("quizScore", 0)
+        var currentScore = 0;
+        var questionsAnswered = 0;
         let functionChooser = 4;
+        var localTull = localStorage.setItem("counter", 0);
         
         let index=0;
         const loadQuiz = () => {
@@ -279,13 +279,11 @@
 
 
         };
+       
         
 
         const answerFunction = (number) => {
             
-            var currentScore = parseInt(localStorage.getItem("currentScore"));
-            var questionsAnswered = parseInt(localStorage.getItem("questionsAnswered"));
-            var quizScore = parseInt(localStorage.getItem("quizScore"));
             
             
             if (remainingQuestions == 0){
@@ -299,8 +297,8 @@
                     
                     case true: 
                     case answerCheck = 0:{
-                        localStorage.setItem("currentScore", ++currentScore)
-                        localStorage.setItem("questionsAnswered", ++questionsAnswered)
+                        currentScore++;
+                        questionsAnswered++;
                         console.log(currentScore)
                         nextQuestion.innerHTML=`<input type="button" style="background-color: #068806" onclick="loadQuiz()" value="Correct Answer! Click here to load the next quesiton">`
                         answerCheck = 1;
@@ -309,7 +307,7 @@
                     break;
                     case false:
                     case answerCheck = 0:{
-                        localStorage.setItem("questionsAnswered", ++questionsAnswered)
+                        questionsAnswered++
                         nextQuestion.innerHTML=`<input type="button" style="background-color: #d41e1e"  onclick="loadQuiz()" value="Sorry, thats not correct! Click here to load the next quesiton">`
                         answerCheck = 1;
                     };
@@ -317,11 +315,33 @@
             }}
             break;
             case  1:{
-                    localStorage.setItem("quizScore", currentScore)
-                    console.log(localStorage.getItem("quizScore"));
-                    console.log("FERDI")
+
+                    var counter = localStorage.getItem("counter");
+                    counter++
+                    localStorage.setItem(""+counter, currentScore)
+                    localStorage.setItem("counter", counter)
+                    
+                    console.log("FERDI", currentScore)
                     nextQuestion.innerHTML=`<input type="button" onclick="loadQuiz()" value="Quiz complete! Click here to retry the quiz.">`
-                    footScore.innerHTML=``
+                    var scores = []
+                    var sortedScores = []
+                    
+                    footScore.innerHTML = "";
+                    for (let i = 0; i < counter; i++) {
+                        scores.push(localStorage.getItem(i+1))     
+                    }
+                    for (let i = 0; i < scores.length; i++) {
+                        sortedScores = scores.sort(function (a, b) {  return b - a;  });
+                        footScore.innerHTML+=`<p>${sortedScores[i]}</p>`
+                        
+                    }
+                    currentScore = 0;
+                    questionsAnswered = 0;
+                    questions = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+                    remainingQuestions = 10;
+                    quizTracker = 0;
+                    
+                    
                 }
                 
 
