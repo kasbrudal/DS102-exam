@@ -272,10 +272,10 @@
             output.innerHTML += `
             
             <div class="quiz-buttons">
-                <input type="button" class="answerButton" onclick="footAnswerFunction([${question1Placement},2])" value="a:${questionArray[index-1].answers[question1Placement].o}">
-                <input type="button" class="answerButton" onclick="footAnswerFunction([${question2Placement},2])," value="b:${questionArray[index-1].answers[question2Placement].o}">
-                <input type="button" class="answerButton" onclick="footAnswerFunction([${question3Placement},2])" value="c:${questionArray[index-1].answers[question3Placement].o}">
-                <input type="button" class="answerButton" onclick="footAnswerFunction([${question4Placement},2])" value="d:${questionArray[index-1].answers[question4Placement].o}">
+                <input type="button" class="answerButton" onclick="footAnswerFunction(${question1Placement})" value="a:${questionArray[index-1].answers[question1Placement].o}">
+                <input type="button" class="answerButton" onclick="footAnswerFunction(${question2Placement})," value="b:${questionArray[index-1].answers[question2Placement].o}">
+                <input type="button" class="answerButton" onclick="footAnswerFunction(${question3Placement})" value="c:${questionArray[index-1].answers[question3Placement].o}">
+                <input type="button" class="answerButton" onclick="footAnswerFunction(${question4Placement})" value="d:${questionArray[index-1].answers[question4Placement].o}">
             </div>
             `;
 
@@ -451,7 +451,7 @@
 
             nextQuestion.innerHTML = ""
             questionOutput = ""
-            questionOutput = `<h1 class="quiz-Question">${questionArray[index-1].question}</h1>`
+            questionOutput += `<h1 class="quiz-Question">${questionArray[index-1].question}</h1>`
             output.innerHTML = ""
             output.innerHTML += `
             
@@ -470,8 +470,6 @@
         
 
         const footAnswerFunction = (number) => {
-
-            console.log(number[1], "quizcheck")
             
             if (remainingQuestions == 0){
                 quizTracker = 1;
@@ -480,7 +478,7 @@
                 
 
                 case  0:{
-                    switch (questionArray[0].answers[number[0]].isCorrect){
+                    switch (questionArray[0].answers[number].isCorrect){
                     
                     case true: 
                     case answerCheck = 0:{
@@ -507,7 +505,7 @@
 
                     var counter = localStorage.getItem("counter");
                     counter++
-                    localStorage.setItem(1000+counter, currentScore);
+                    localStorage.setItem(2000+counter, currentScore);
                     localStorage.setItem("counter", counter)
                     nextQuestion.innerHTML=`<input type="button" class="nextQuestion-Button" style="background-color: #8a791b" onclick="loadFootballQuiz()" value="Quiz complete! Click here to retry the quiz.">`
                     var scores = []
