@@ -268,10 +268,10 @@
             output.innerHTML += `
             <h1 class="quiz-Question">${questionArray[index-1].question}</h1>
             <div class="quiz-buttons">
-                <input type="button" class="answerButton" onclick="answerFunction(${question1Placement}, 2)" value="a:${questionArray[index-1].answers[question1Placement].o}">
-                <input type="button" class="answerButton" onclick="answerFunction(${question2Placement}, 2)," value="b:${questionArray[index-1].answers[question2Placement].o}">
-                <input type="button" class="answerButton" onclick="answerFunction(${question3Placement}, 2)" value="c:${questionArray[index-1].answers[question3Placement].o}">
-                <input type="button" class="answerButton" onclick="answerFunction(${question4Placement}, 2)" value="d:${questionArray[index-1].answers[question4Placement].o}">
+                <input type="button" class="answerButton" onclick="answerFunction([${question1Placement},2])" value="a:${questionArray[index-1].answers[question1Placement].o}">
+                <input type="button" class="answerButton" onclick="answerFunction([${question2Placement},2])," value="b:${questionArray[index-1].answers[question2Placement].o}">
+                <input type="button" class="answerButton" onclick="answerFunction([${question3Placement},2])" value="c:${questionArray[index-1].answers[question3Placement].o}">
+                <input type="button" class="answerButton" onclick="answerFunction([${question4Placement},2])" value="d:${questionArray[index-1].answers[question4Placement].o}">
             </div>
             `;
 
@@ -465,6 +465,7 @@
 
         const answerFunction = (number) => {
             
+            
             console.log(number[1], "quizcheck")
             
             if (remainingQuestions == 0){
@@ -474,7 +475,7 @@
                 
 
                 case  0:{
-                    switch (questionArray[0].answers[number].isCorrect){
+                    switch (questionArray[0].answers[number[0]].isCorrect){
                     
                     case true: 
                     case answerCheck = 0:{
