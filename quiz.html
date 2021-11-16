@@ -31,6 +31,7 @@
     </div>
 
         <section class="quiz-Section">
+            <div class="outputQuiz" id="questionOutput"></div>
             <div class="outputQuiz" id="outputInfo"></div>
             <div class="nextQuestion" id="nextQuestionBox"></div>
             <div id="totalScore"></div>
@@ -55,6 +56,7 @@
         let nextQuestion = document.getElementById("nextQuestionBox")
         let pokeScore = document.getElementById("pokeScore")
         let footScore = document.getElementById("footScore")
+        let questionOutput = document.getElementById("questionOutput")
         
 
         const allPokemon = getAllPokemon();
@@ -264,14 +266,16 @@
 
 
             nextQuestion.innerHTML = ""
+            questionOutput.innerHTML = ""
+            questionOutput.innerHTML = `<h1 class="quiz-Question">${questionArray[index-1].question}</h1>`
             output.innerHTML = ""
             output.innerHTML += `
-            <h1 class="quiz-Question">${questionArray[index-1].question}</h1>
+            
             <div class="quiz-buttons">
-                <input type="button" class="answerButton" onclick="answerFunction([${question1Placement},2])" value="a:${questionArray[index-1].answers[question1Placement].o}">
-                <input type="button" class="answerButton" onclick="answerFunction([${question2Placement},2])," value="b:${questionArray[index-1].answers[question2Placement].o}">
-                <input type="button" class="answerButton" onclick="answerFunction([${question3Placement},2])" value="c:${questionArray[index-1].answers[question3Placement].o}">
-                <input type="button" class="answerButton" onclick="answerFunction([${question4Placement},2])" value="d:${questionArray[index-1].answers[question4Placement].o}">
+                <input type="button" class="answerButton" onclick="footAnswerFunction([${question1Placement},2])" value="a:${questionArray[index-1].answers[question1Placement].o}">
+                <input type="button" class="answerButton" onclick="footAnswerFunction([${question2Placement},2])," value="b:${questionArray[index-1].answers[question2Placement].o}">
+                <input type="button" class="answerButton" onclick="footAnswerFunction([${question3Placement},2])" value="c:${questionArray[index-1].answers[question3Placement].o}">
+                <input type="button" class="answerButton" onclick="footAnswerFunction([${question4Placement},2])" value="d:${questionArray[index-1].answers[question4Placement].o}">
             </div>
             `;
 
@@ -446,14 +450,16 @@
 
 
             nextQuestion.innerHTML = ""
+            questionOutput = ""
+            questionOutput = `<h1 class="quiz-Question">${questionArray[index-1].question}</h1>`
             output.innerHTML = ""
             output.innerHTML += `
-            <h1 class="quiz-Question">${questionArray[index-1].question}</h1>
+            
             <div class="quiz-buttons">
-                <button class="answerButton" onclick="answerFunction(${question1Placement})" value="a:">${questionArray[index-1].answers[question1Placement].o}</button>
-                <button class="answerButton" onclick="answerFunction(${question2Placement})" value="b:">${questionArray[index-1].answers[question2Placement].o}</button>
-                <button class="answerButton" onclick="answerFunction(${question3Placement})" value="c:">${questionArray[index-1].answers[question3Placement].o}</button>
-                <button class="answerButton" onclick="answerFunction(${question4Placement},)" value="d:">${questionArray[index-1].answers[question4Placement].o}</button>
+                <button class="answerButton" onclick="pokeAnswerFunction(${question1Placement})" value="a:">${questionArray[index-1].answers[question1Placement].o}</button>
+                <button class="answerButton" onclick="pokeAnswerFunction(${question2Placement})" value="b:">${questionArray[index-1].answers[question2Placement].o}</button>
+                <button class="answerButton" onclick="pokeAnswerFunction(${question3Placement})" value="c:">${questionArray[index-1].answers[question3Placement].o}</button>
+                <button class="answerButton" onclick="pokeAnswerFunction(${question4Placement})" value="d:">${questionArray[index-1].answers[question4Placement].o}</button>
             </div>
             `;
 
@@ -463,9 +469,8 @@
         };
         
 
-        const answerFunction = (number) => {
-            
-            
+        const footAnswerFunction = (number) => {
+
             console.log(number[1], "quizcheck")
             
             if (remainingQuestions == 0){
@@ -534,6 +539,79 @@
                 default :console.log("switch ferdig");
             };
             
+            console.log(remainingQuestions, currentScore)
+            };
+
+        const pokeAnswerFunction = (number) => {
+
+            if (remainingQuestions == 0){
+                quizTracker = 1;
+            };
+            switch (quizTracker){
+                
+
+                case  0:{
+                    switch (questionArray[0].answers[number].isCorrect){
+                    
+                    case true: 
+                    case answerCheck = 0:{
+                        currentScore++;
+                        questionsAnswered++;
+                        console.log(currentScore)
+                        output.innerHTML = ""
+                        output.innerHTML += `
+                        <input type="button" class="nextQuestion-Button" style="background-color: #068806" onclick="loadPokemonQuiz()" value="Correct Answer! Click here to load the next quesiton">`
+                        totalScore.innerHTML=`<p>${currentScore}</p>`
+                        answerCheck = 1;
+
+                    };
+                    break;
+                    case false:
+                    case answerCheck = 0:{
+                        questionsAnswered++
+                        nextQuestion.innerHTML=`<input type="button" class="nextQuestion-Button" style="background-color: #d41e1e"  onclick="loadPokemonQuiz()" value="Sorry, thats not correct! Click here to load the next quesiton">`
+                        output.innerHTML=`<p>${currentScore}</p>`
+                        answerCheck = 1;
+                    };
+                    default :console.log("!", answerCheck);
+            }}
+            break;
+            case  1:{
+
+                    var counter = localStorage.getItem("counter");
+                    counter++
+                    localStorage.setItem(1000+counter, currentScore);
+                    localStorage.setItem("counter", counter)
+                    nextQuestion.innerHTML=`<input type="button" class="nextQuestion-Button" style="background-color: #8a791b" onclick="loadPokemonQuiz()" value="Quiz complete! Click here to retry the quiz.">`
+                    var scores = []
+                    var sortedScores = []
+                    
+                    footScore.innerHTML = "";
+                    
+                    for (let i = 0; i < counter; i++) {
+                        
+                        scores.push(localStorage.getItem(1000+i+1)) 
+                        console.log(scores)
+                    }
+                    for (let i = 0; i < scores.length; i++) {
+                        sortedScores = scores.sort(function (a, b) {  return b - a;  });
+                        footScore.innerHTML+=`<p>${sortedScores[i]}</p>`
+                        
+                    }
+                    currentScore = 0;
+                    questionsAnswered = 0;
+                    questions = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+                    remainingQuestions = 10;
+                    quizTracker = 0;
+                    
+                    
+                }
+                
+
+
+                default :console.log("switch ferdig");
+            };
+
             console.log(remainingQuestions, currentScore)
             };
             
