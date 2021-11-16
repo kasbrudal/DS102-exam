@@ -482,6 +482,7 @@
                         questionsAnswered++;
                         console.log(currentScore)
                         nextQuestion.innerHTML=`<input type="button" class="nextQuestion-Button" style="background-color: #068806" onclick="loadFootballQuiz()" value="Correct Answer! Click here to load the next quesiton">`
+                        totalScore.innerHTML=`<p>${currentScore}</p>`
                         answerCheck = 1;
 
                     };
@@ -490,6 +491,7 @@
                     case answerCheck = 0:{
                         questionsAnswered++
                         nextQuestion.innerHTML=`<input type="button" class="nextQuestion-Button" style="background-color: #d41e1e"  onclick="loadFootballQuiz()" value="Sorry, thats not correct! Click here to load the next quesiton">`
+                        totalScore.innerHTML=`<p>${currentScore}</p>`
                         answerCheck = 1;
                     };
                     default :console.log("!", answerCheck) ;
@@ -499,17 +501,21 @@
 
                     var counter = localStorage.getItem("counter");
                     counter++
-                    localStorage.setItem(""+counter, currentScore)
+                    var footCounter = JSON.stringify("1"+counter);
+                    localStorage.setItem(a+counter, currentScore);
                     localStorage.setItem("counter", counter)
                     
-                    console.log("FERDI", currentScore)
-                    nextQuestion.innerHTML=`<input type="button" class="nextQuestion-Button" style="background-color: #8a791b" onclick="loadQuiz()" value="Quiz complete! Click here to retry the quiz.">`
+                    console.log(JSON.stringify("1"+counter))
+                    nextQuestion.innerHTML=`<input type="button" class="nextQuestion-Button" style="background-color: #8a791b" onclick="loadFootballQuiz()" value="Quiz complete! Click here to retry the quiz.">`
                     var scores = []
                     var sortedScores = []
                     
                     footScore.innerHTML = "";
+                    
                     for (let i = 0; i < counter; i++) {
-                        scores.push(localStorage.getItem(i+1))     
+                        
+                        scores.push(localStorage.getItem(a+(i+1))) 
+                        console.log(scores)    
                     }
                     for (let i = 0; i < scores.length; i++) {
                         sortedScores = scores.sort(function (a, b) {  return b - a;  });
