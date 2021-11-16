@@ -78,7 +78,7 @@
             output.innerHTML="";
             pokemons.forEach(pokemon =>{
                 output.innerHTML += `
-                <div class="playCard">
+                <section class="playCard">
                 <img src="${pokemon.image}" class="playImg" alt="Image of ${pokemon.name}">
                 <p>${pokemon.dexNumber}</p>
                 <h2> ${pokemon.name} </h2>
@@ -119,7 +119,7 @@
             console.log(players)
             players.forEach(player =>{
                 output.innerHTML += `
-                <div class="playCard">
+                <section class="playCard">
                 <img class="playImg" src="${player.playerImg}" alt="Image of ${player.name}">
                 <b> Ranking: ${player.ranking}</b>
                 <h2> ${player.name}, ${player.age} years</h2>

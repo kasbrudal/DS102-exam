@@ -268,10 +268,10 @@
             output.innerHTML += `
             <h1 class="quiz-Question">${questionArray[index-1].question}</h1>
             <div class="quiz-buttons">
-                <input type="button" class="answerButton" onclick="answerFunction(${question1Placement})" value="a:${questionArray[index-1].answers[question1Placement].o}">
-                <input type="button" class="answerButton" onclick="answerFunction(${question2Placement})" value="b:${questionArray[index-1].answers[question2Placement].o}">
-                <input type="button" class="answerButton" onclick="answerFunction(${question3Placement})" value="c:${questionArray[index-1].answers[question3Placement].o}">
-                <input type="button" class="answerButton" onclick="answerFunction(${question4Placement})" value="d:${questionArray[index-1].answers[question4Placement].o}">
+                <input type="button" class="answerButton" onclick="answerFunction(${question1Placement}, 2)" value="a:${questionArray[index-1].answers[question1Placement].o}">
+                <input type="button" class="answerButton" onclick="answerFunction(${question2Placement}, 2)," value="b:${questionArray[index-1].answers[question2Placement].o}">
+                <input type="button" class="answerButton" onclick="answerFunction(${question3Placement}, 2)" value="c:${questionArray[index-1].answers[question3Placement].o}">
+                <input type="button" class="answerButton" onclick="answerFunction(${question4Placement}, 2)" value="d:${questionArray[index-1].answers[question4Placement].o}">
             </div>
             `;
 
@@ -450,10 +450,10 @@
             output.innerHTML += `
             <h1 class="quiz-Question">${questionArray[index-1].question}</h1>
             <div class="quiz-buttons">
-                <div class="answerButton" onclick="answerFunction(${question1Placement})" value="a:">${questionArray[index-1].answers[question1Placement].o}</div>
-                <div class="answerButton" onclick="answerFunction(${question2Placement})" value="b:">${questionArray[index-1].answers[question2Placement].o}</div>
-                <div class="answerButton" onclick="answerFunction(${question3Placement})" value="c:">${questionArray[index-1].answers[question3Placement].o}</div>
-                <div class="answerButton" onclick="answerFunction(${question4Placement})" value="d:">${questionArray[index-1].answers[question4Placement].o}</div>
+                <button class="answerButton" onclick="answerFunction(${question1Placement})" value="a:">${questionArray[index-1].answers[question1Placement].o}</button>
+                <button class="answerButton" onclick="answerFunction(${question2Placement})" value="b:">${questionArray[index-1].answers[question2Placement].o}</button>
+                <button class="answerButton" onclick="answerFunction(${question3Placement})" value="c:">${questionArray[index-1].answers[question3Placement].o}</button>
+                <button class="answerButton" onclick="answerFunction(${question4Placement},)" value="d:">${questionArray[index-1].answers[question4Placement].o}</button>
             </div>
             `;
 
@@ -465,7 +465,7 @@
 
         const answerFunction = (number) => {
             
-            
+            console.log(number[1], "quizcheck")
             
             if (remainingQuestions == 0){
                 quizTracker = 1;
@@ -501,11 +501,8 @@
 
                     var counter = localStorage.getItem("counter");
                     counter++
-                    var footCounter = JSON.stringify("1"+counter);
-                    localStorage.setItem(a+counter, currentScore);
+                    localStorage.setItem(1000+counter, currentScore);
                     localStorage.setItem("counter", counter)
-                    
-                    console.log(JSON.stringify("1"+counter))
                     nextQuestion.innerHTML=`<input type="button" class="nextQuestion-Button" style="background-color: #8a791b" onclick="loadFootballQuiz()" value="Quiz complete! Click here to retry the quiz.">`
                     var scores = []
                     var sortedScores = []
@@ -514,8 +511,8 @@
                     
                     for (let i = 0; i < counter; i++) {
                         
-                        scores.push(localStorage.getItem(a+(i+1))) 
-                        console.log(scores)    
+                        scores.push(localStorage.getItem(1000+i+1)) 
+                        console.log(scores)
                     }
                     for (let i = 0; i < scores.length; i++) {
                         sortedScores = scores.sort(function (a, b) {  return b - a;  });
